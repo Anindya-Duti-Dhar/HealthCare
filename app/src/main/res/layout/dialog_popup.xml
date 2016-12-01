@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:background="@color/app_black_transparent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@android:color/transparent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dialog_shape">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_margin="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal"
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="16dp"
+                android:weightSum="4">
+
+            <ImageView
+                android:id="@+id/cartoon"
+                android:layout_width="0dp"
+                android:layout_weight=".8"
+                android:layout_marginRight="2dp"
+                android:layout_marginLeft="3dp"
+                android:layout_gravity="center_vertical"
+                android:layout_height="70dp"
+                android:background="@drawable/app_icon"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="3.2"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/home_shape">
+
+            <TextView
+                android:id="@+id/result_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/Black"
+                android:text="@string/range_35_40"
+                android:textSize="16sp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="8dp">
+
+        <!--<Button
+            android:id="@+id/dietButton"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_weight="1.75"
+            android:background="@drawable/shape"
+            android:layout_gravity="center_vertical"
+            android:text="@string/diet_button"
+            android:textAllCaps="false"
+            android:textStyle="normal"
+            android:textSize="16sp"
+            />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight=".5"/>-->
+
+            <Button
+                android:id="@+id/tipsButton"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:background="@drawable/shape"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/tips_button"
+                android:textAllCaps="false"
+                android:textStyle="normal"
+                android:textSize="16sp"
+                />
+
+        </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/cancel_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/cancle_shape"
+        android:src="@drawable/ic_action_content_clear" />
+
+</RelativeLayout>

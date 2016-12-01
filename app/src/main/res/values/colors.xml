@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="PrimaryColor">#2196F3</color>
+    <color name="PrimaryDarkColor">#b0392c</color>
+    <color name="PrimaryYoColor">#DC4837</color>
+
+    <color name="YoColor">#25a071</color>
+    <color name="list_background">#FFFFFF</color>
+    <color name="timeline_item_selector">#ccc</color>
+    <color name="colorPrimary">#28b99a</color>
+    <color name="colorPrimary2">#3F51B5</color>
+    <color name="colorPrimaryDark">#186f5c</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="app_black_transparent">#97000000</color>
+
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="windowBackground">#FFFFFF</color>
+    <color name="navigationBarColor">#000000</color>
+
+
+    <!-- Screens background color-->
+    <color name="bg_screen1">#f64c73</color>
+    <color name="bg_screen2">#20d2bb</color>
+    <color name="bg_screen3">#3395ff</color>
+    <color name="bg_screen4">#c873f4</color>
+
+    <!-- dots inactive colors -->
+    <color name="dot_dark_screen1">#d1395c</color>
+    <color name="dot_dark_screen2">#14a895</color>
+    <color name="dot_dark_screen3">#2278d4</color>
+    <color name="dot_dark_screen4">#a854d4</color>
+
+    <!-- dots active colors -->
+    <color name="dot_light_screen1">#f98da5</color>
+    <color name="dot_light_screen2">#8cf9eb</color>
+    <color name="dot_light_screen3">#93c6fd</color>
+    <color name="dot_light_screen4">#e4b5fc</color>
+
+    <array name="array_dot_active">
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen2</item>
+        <item>@color/dot_light_screen3</item>
+        <item>@color/dot_light_screen4</item>
+    </array>
+
+    <array name="array_dot_inactive">
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen2</item>
+        <item>@color/dot_dark_screen3</item>
+        <item>@color/dot_dark_screen4</item>
+    </array>
+
+    <color name="text">#ff221f1f</color>
+    <color name="text_subdued">#ff615e5c</color>
+    <color name="window_bg">#ffd4cece</color>
+    <color name="black_overlay">#66000000</color>
+
+    <color name="myView_toolbar">#40B1B2</color>
+    <color name="myView_homebg">#3DB2B3</color>
+
+    <color name="reverie_primary">#A9A9A9</color>
+    <color name="reverie_accent">#A9A9A9</color>
+    <color name="reverie_dark_primary">#18218A</color>
+    <color name="reverie_bg">#f7f7f7</color>
+
+    <color name="off_white">#F5F5F5</color>
+    <color name="white_text_color">#FFFFFF</color>
+    <color name="Black">#000000</color>
+    <color name="android_blue">#46AEE0</color>
+    <color name="ash_color">#acacac</color>
+    <color name="ash_color_light">#E2E2E2</color>
+    <color name="White">#FFFFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="color_primary_green"> #338C6A</color>
+    <color name="color_primary_green_dark">#388e3c</color>
+    <color name="ripple_green">#26a69a</color>
+    <color name="fab_color_ripple">#7b1fa2</color>
+    <color name="status_bar">#186f5c</color>
+    <color name="blue">#5B76B3</color>
+    <color name="marun">#DC4837</color>
+    <color name="magenta_color">#EB54AA</color>
+    <color name="fab_color_mesage">#26c6DA</color>
+    <color name="ripple_blue">#1a237e</color>
+
+    <color name="card_bg">#acacac</color>
+
+    <color name="pressed_blue">#FF7294DF</color>
+    <color name="pressed_color_for_hot_pink">#fb5bad</color>
+    <color name="hot_pink">#fa148a</color>
+    <color name="background_light">#75ffffff</color>
+    <color name="Lemon">#bce102</color>
+
+    <color name="home_border">#c6c5c5</color>
+    <color name="home_text">#e5e9ed</color>
+
+
+</resources>

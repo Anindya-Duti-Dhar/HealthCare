@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">সুস্থ জীবন</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">সেটিংস</string>
+
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+    <string name="err_msg_weight">আপনার ওজন প্রবেশ করুন </string>
+    <string name="err_msg_height">আপনার উচ্চতা প্রবেশ করুন </string>
+
+    <string name="hint_weight">আপনার ওজন (কেজি)</string>
+    <string name="hint_height">আপনার উচ্চতা (ইঞ্চি)</string>
+
+    <string name="welcome_text">আপনার ওজন ও উচ্চতা প্রবেশ করুন</string>
+    <string name="submit_button">ফলাফল জানুন</string>
+
+    <string name="diet_button">ডায়েট</string>
+    <string name="tips_button">টিপস</string>
+
+    <string name="range_15">আপনি পুষ্টি শুন্যতায় ভুগছেন</string>
+    <string name="range_15_16">আপনার খাদ্যাভাস বৃদ্ধি প্রয়োজন</string>
+    <string name="range_16_18">আপনার স্বাস্থ্য খারাপ</string>
+    <string name="range_18_25">অভিনন্দন। আপনি সম্পূর্ণ সুস্থ আছেন</string>
+    <string name="range_25_30">আপনি স্বাস্থ্যবান</string>
+    <string name="range_30_35">আপনার স্বাস্থ্য সম্পর্কে সচেতন হউন</string>
+    <string name="range_35_40">আপনার স্বাস্থ্য বিপদসীমা অতিক্রম করেছে</string>
+    <string name="range_40">আপনার স্বাস্থ্য বিপজ্জনক পর্যায়ে রয়েছে। আজি এ ডাক্তার এর শরণাপন্ন হউন।</string>
+
+    <string name="nav_header_title">সুস্থ জীবন</string>
+    <string name="nav_header_Message">সূচি নির্ধারণ করুন</string>
+
+    <string name="menu_about">আমাদের সম্পর্কে</string>
+    <string name="menu_contact">যোগাযোগ</string>
+    <string name="menu_website">আমাদের ওয়েবসাইট</string>
+    <string name="menu_apps">আমাদের অ্যাপস</string>
+    <string name="menu_pie_chart">চার্ট</string>
+    <string name="menu_home">হোম</string>
+
+    <string name="first_column">জানুয়ারি থেকে এপ্রিল</string>
+    <string name="second_column">মে থেকে\nআগস্ট</string>
+    <string name="third_column">সেপ্টেম্বর থেকে ডিসেম্বর</string>
+
+    <string name="lab_mimosa">ল্যাব মিমোসা</string>
+
+    <string name="fb">ফেইসবুক</string>
+    <string name="gplus">গুগল প্লাস</string>
+    <string name="twitter">টুইটার</string>
+    <string name="mobile">+৮৮০১৮৬৫৪৪৪৪১৯</string>
+    <string name="website">www.reveriegroup.com</string>
+    <string name="email">hello@reveriegroup.com</string>
+
+
+    <string name="dialog_title">ইন্টারনেট কানেকশন নেই</string>
+    <string name="dialog_message">আমাদের ওয়েবসাইট ভিসিট করার জন্য ইন্টারনেট কানেকশন চালু করুন।</string>
+    <string name="dialog_button">ঠিক আছে</string>
+    <string name="dialog_negative">এখন না</string>
+
+
+    <string name="dialog2_title">আমাদের অ্যাপস সমুহ দেখতে চাচ্ছেন?</string>
+    <string name="dialog2_message">আমাদের অ্যাপস সমুহ দেখতে আপনাকে গুগল প্লে স্টোরে যেতে হবে।</string>
+    <string name="dialog2_button">ঠিক আছে</string>
+    <string name="dialog2_negative">এখন না</string>
+
+    <string name="dialog3_message">আপনি কি বের হয়ে যেতে চাচ্ছেন?</string>
+    <string name="dialog3_button">হ্যাঁ</string>
+    <string name="dialog3_negative">না</string>
+
+
+    <string name="about_title">রেভারি কর্পোরেশন লিমিটেড</string>
+    <string name="about_message">মোবাইল গেম এবং অ্যাপ্লিকেশান নির্মাতা প্রতিষ্ঠান</string>
+    <string name="about_text">গত চার বছরে গুগল এন্ড্রয়েড ও অ্যাপেল আইওএস প্লাটফর্মে ৭৫ টির ও বেশি মোবাইল অ্যাপ্লিকেশান ও মোবাইল গেম বানিয়েছে রেভারি। রেভারি দেশে এবং দেশের বাইরে আমেরিকা, কানাডা, ইউরোপের অনেক কোম্পানির সাথে কাজ করছে। এর মধ্যে হাউ টু ওয়্যার এ শাড়ি, ম্যাচ মেকার, উন্মাদ, ফ্রাপি বার্ড, রক অ্যান্ড রোল, পোসড এগ, ক্যানভাস, ক্রিকেট রেকর্ড- ২০১১,  এস্কেপবোট, হাউমাচ ইউ নো বাংলাদেশ, ডেথ কিস, হলিউড ম্যানিয়া ব্যাপক জনপ্রিয়তা পেয়েছে। \nশুধু মোবাইল অ্যাপ্লিকেশান, গেম ডেভেলপমেন্টই নয়, বর্তমানে কোম্পানিটি ওয়েবসাইট ডেভেলপমেন্ট, কাস্টম ওয়েব অ্যাপ্লিকেশান, অ্যাপ স্টোর সার্ভিস, মোবাইল অ্যাপ মার্কেটিং, অ্যাপ স্টোর রিসার্চ এবং আইটিইএস সার্ভিস নিয়ে কাজ করছে।</string>
+
+    <string name="text_validity">দয়া করে বাস্তব সম্মত তথ্য প্রবেশ করুন</string>
+
+    <!-- AdMob ad unit id -->
+    <!--<string name="banner_footer">ca-app-pub-3952381686536210/3209010685</string>-->
+</resources>
