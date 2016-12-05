@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.InputFilter;
 import android.text.InputType;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.MenuItem;
@@ -87,6 +88,10 @@ public class MainActivity extends AppCompatActivity {
     String oper = "";
 
     private Boolean firstTime = null;
+    private AlarmManager alarmManager;
+    private PendingIntent pendingIntent;
+    private Intent alarmIntent;
+    private Calendar alarmStartTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -437,24 +442,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setNotification() {
+        alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmIntent = new Intent(MainActivity.this, MyReceiver.class);
+        pendingIntent = PendingIntent.getBroadcast(  MainActivity.this, 0, alarmIntent, 0);
 
-        Calendar calendar = Calendar.getInstance();
-// we can set time by open date and time picker dialog
-        calendar.set(Calendar.HOUR_OF_DAY, 21);
-        calendar.set(Calendar.MINUTE, 00);
-        calendar.set(Calendar.SECOND, 0);
+        alarmStartTime = Calendar.getInstance();
+        alarmStartTime.set(Calendar.HOUR_OF_DAY, 21);
+        alarmStartTime.set(Calendar.MINUTE, 0);
+        alarmStartTime.set(Calendar.SECOND, 0);
+        alarmManager.setRepeating(AlarmManager.RTC, alarmStartTime.getTimeInMillis(), getInterval(), pendingIntent);
 
-        Intent intent1 = new Intent(MainActivity.this, MyReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(
-                MainActivity.this, 0, intent1,
-                PendingIntent.FLAG_UPDATE_CURRENT);
-        AlarmManager am = (AlarmManager) MainActivity.this
-                .getSystemService(MainActivity.this.ALARM_SERVICE);
-        /*am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);*/
-        am.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 15 * 24 * 60 * 60 * 1000, pendingIntent);
+        Log.d("Alarm Set: ", "Start");
+        //Toast.makeText(getApplicationContext(), getString(R.string.app_name), Toast.LENGTH_SHORT).show();
+    }
 
-        Toast.makeText(getApplicationContext(), getString(R.string.app_name), Toast.LENGTH_SHORT).show();
-
+    private int getInterval() {
+        int days = 7;
+        int hours = 24;
+        int minutes = 60;
+        int seconds = 60;
+        int milliseconds = 1000;
+        int repeatMS = days * hours * minutes * seconds * milliseconds;
+        return repeatMS;
     }
 
     @Override
