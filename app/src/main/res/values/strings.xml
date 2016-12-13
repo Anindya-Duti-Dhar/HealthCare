@@ -74,6 +74,13 @@
 
     <string name="text_validity">দয়া করে বাস্তব সম্মত তথ্য প্রবেশ করুন</string>
 
+
+    <string name="tips1">পরিমিত আহার করুন ৷</string>
+    <string name="tips2">নিয়মিত হাঁটাহাঁটি করুন ।</string>
+    <string name="tips3">প্রতিদিন ফল্মূল খান</string>
+    <string name="tips4">প্রতিদিন সাঁতার কাটুন</string>
+    <string name="tips5">পরিমিত ঘুমানোর চেষ্টা করুন</string>
+
     <!-- AdMob ad unit id -->
     <!--<string name="banner_footer">ca-app-pub-3952381686536210/3209010685</string>-->
 </resources>

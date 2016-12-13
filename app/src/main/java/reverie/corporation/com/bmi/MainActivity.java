@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     MenuItem mPreviousMenuItem;
     private AdView mAdMobAdView;
 
-    private Dialog dialog;
+    private Dialog dialog, tipsDialog;
 
     final Context mContext = this;
 
@@ -81,8 +81,9 @@ public class MainActivity extends AppCompatActivity {
     ImageView cartoon;
     Typeface font;
     Button btnSubmit, tipsButton, dietButton;
-    ImageButton cancelButton;
+    ImageButton cancelButton, tipsCancelButton;
     TextView txtWelcome, txtWeightTitle, txtHeightTitle, txtNav_Header_Title, txtNav_Header_Message, resultText;
+    TextView txtTips1, txtTips2, txtTips3, txtTips4, txtTips5 ;
     DatabaseHelpher helpher;
 
     String oper = "";
@@ -272,10 +273,12 @@ public class MainActivity extends AppCompatActivity {
         } else if (!etWeight.getText().toString().trim().isEmpty()){
             String value= etWeight.getText().toString();
             int number=Integer.parseInt(value);
-            if (number > 130 && number <2.5 ){
+            Log.d("value", value);
+            if (number > 130 && number <2 ){
                 Toast.makeText(getApplicationContext(), getString(R.string.text_validity), Toast.LENGTH_SHORT).show();
             }
             else {
+                Log.d("test", "test");
                 // custom dialog
                 dialog = new Dialog(MainActivity.this);  // always give context of activity.
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -301,6 +304,39 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();
+                        // custom dialog
+                        tipsDialog = new Dialog(MainActivity.this);  // always give context of activity.
+                        tipsDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                        getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+                        tipsDialog.setContentView(R.layout.tips_dialog);
+
+                        tipsDialog.show();
+
+                        // set the custom dialog components - text, image and button
+                        txtTips1 = (TextView) tipsDialog.findViewById(R.id.tipsOne);
+                        txtTips1.setText(getString(R.string.err_msg_height));
+                        txtTips1.setTypeface(font);
+                        txtTips2 = (TextView) tipsDialog.findViewById(R.id.tipsTwo);
+                        txtTips1.setText(getString(R.string.err_msg_height));
+                        txtTips1.setTypeface(font);
+                        txtTips3 = (TextView) tipsDialog.findViewById(R.id.tipsThree);
+                        txtTips1.setText(getString(R.string.err_msg_height));
+                        txtTips1.setTypeface(font);
+                        txtTips4 = (TextView) tipsDialog.findViewById(R.id.tipsFour);
+                        txtTips1.setText(getString(R.string.err_msg_height));
+                        txtTips1.setTypeface(font);
+                        txtTips5 = (TextView) tipsDialog.findViewById(R.id.tipsFive);
+                        txtTips1.setText(getString(R.string.err_msg_height));
+                        txtTips1.setTypeface(font);
+
+                        tipsCancelButton = (ImageButton) tipsDialog.findViewById(R.id.cancel_btn_tips);
+
+                        tipsCancelButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                tipsDialog.dismiss();
+                            }
+                        });
                     }
                 });
 
@@ -453,7 +489,7 @@ public class MainActivity extends AppCompatActivity {
         alarmManager.setRepeating(AlarmManager.RTC, alarmStartTime.getTimeInMillis(), getInterval(), pendingIntent);
 
         Log.d("Alarm Set: ", "Start");
-        //Toast.makeText(getApplicationContext(), getString(R.string.app_name), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Alarm Set", Toast.LENGTH_SHORT).show();
     }
 
     private int getInterval() {
