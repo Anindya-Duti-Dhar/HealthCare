@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BMI.iml" filepath="$PROJECT_DIR$/BMI.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spacetablayout/spacetablayout.iml" filepath="$PROJECT_DIR$/spacetablayout/spacetablayout.iml" />
     </modules>
   </component>
 </project>

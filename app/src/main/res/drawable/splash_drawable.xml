@@ -2,7 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:drawable="@drawable/splash_text"
+        android:drawable="@drawable/splashscreen"
         android:gravity="center"/>
 
 </layer-list>

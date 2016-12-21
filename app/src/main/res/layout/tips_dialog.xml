@@ -105,7 +105,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
-            android:drawableLeft="@drawable/foods"
+            android:drawableLeft="@drawable/sleeping"
             android:drawablePadding="16dp"
             android:lineSpacingExtra="3dp"
             android:text="@string/tips5"

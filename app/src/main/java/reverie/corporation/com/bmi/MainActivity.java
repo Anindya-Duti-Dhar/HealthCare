@@ -274,7 +274,7 @@ public class MainActivity extends AppCompatActivity {
             String value= etWeight.getText().toString();
             int number=Integer.parseInt(value);
             Log.d("value", value);
-            if (number > 130 && number <2 ){
+            if (number >= 2 && number <= 130 ){
                 Toast.makeText(getApplicationContext(), getString(R.string.text_validity), Toast.LENGTH_SHORT).show();
             }
             else {
@@ -367,20 +367,28 @@ public class MainActivity extends AppCompatActivity {
 
                 if (KgInch < 15.0) {
                     resultText.setText(getString(R.string.range_15));
+                    cartoon.setImageResource(R.drawable.figurestage1);
                 } else if ((KgInch >= 15.0) && (KgInch < 16.0)) {
                     resultText.setText(getString(R.string.range_15_16));
+                    cartoon.setImageResource(R.drawable.figurestage2);
                 } else if ((KgInch >= 16.0) && (KgInch < 18.5)) {
                     resultText.setText(getString(R.string.range_16_18));
+                    cartoon.setImageResource(R.drawable.figurestage3);
                 } else if ((KgInch >= 18.5) && (KgInch < 25.0)) {
                     resultText.setText(getString(R.string.range_18_25));
+                    cartoon.setImageResource(R.drawable.figurestage4);
                 } else if ((KgInch >= 25.0) && (KgInch < 30.0)) {
                     resultText.setText(getString(R.string.range_25_30));
+                    cartoon.setImageResource(R.drawable.figurestage5);
                 } else if ((KgInch >= 30.0) && (KgInch < 35.0)) {
                     resultText.setText(getString(R.string.range_30_35));
+                    cartoon.setImageResource(R.drawable.figurestage6);
                 } else if ((KgInch >= 35.0) && (KgInch < 40.0)) {
                     resultText.setText(getString(R.string.range_35_40));
+                    cartoon.setImageResource(R.drawable.figurestage7);
                 } else {
                     resultText.setText(getString(R.string.range_40));
+                    cartoon.setImageResource(R.drawable.figurestage8);
                 }
 
             }

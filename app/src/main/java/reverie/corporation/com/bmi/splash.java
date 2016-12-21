@@ -4,11 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 import android.widget.TextView;
 
 public class splash extends AppCompatActivity {
+
+    private static int SPLASH_TIME_OUT = 3000;
 
     //TextView txtAppTitle;
     //Typeface font;
@@ -17,30 +20,24 @@ public class splash extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-        //****** Create Thread that will sleep for 1.5 seconds *************//
-        Thread background = new Thread() {
+        setContentView(R.layout.activity_splash);
+
+        overridePendingTransition(R.anim.slide_in,R.anim.slide_out);
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
             public void run() {
+                // This method will be executed once the timer is over
+                // Start your app main activity
 
-                try {
-                    // Thread will sleep for 1.5 seconds
-                    sleep(1*1500);
+                Intent i = new Intent(splash.this, MainActivity.class);
+                startActivity(i);
 
-                    // After 1 seconds redirect to another intent
-                    Intent intent = new Intent(getBaseContext(), MainActivity.class);
-                    startActivity(intent);
-                    finish();
-
-                    //Remove activity
-                    finish();
-
-                } catch (Exception e) {
-
-                }
+                // close this activity
+                finish();
             }
-        };
-
-        // start thread
-        background.start();
+        }, SPLASH_TIME_OUT);
 
     }
 
@@ -50,6 +47,10 @@ public class splash extends AppCompatActivity {
         super.onDestroy();
 
     }
+
+
+
+
 		/*setContentView(R.layout.splash);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().setBackgroundDrawableResource(R.drawable.splash_text) ;
