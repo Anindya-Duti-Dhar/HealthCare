@@ -1,8 +1,18 @@
 package reverie.corporation.com.bmi;
 
-import android.content.ActivityNotFoundException;
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -11,99 +21,65 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.InputFilter;
-import android.text.InputType;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.View;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import android.app.AlarmManager;
-import android.app.Dialog;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
-import android.app.PendingIntent;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+import java.util.concurrent.ExecutionException;
+
+import reverie.corporation.com.bmi.bmiCalculation.fragment.WhatIsBmi;
+import reverie.corporation.com.bmi.fragment.EditProfile;
 import reverie.corporation.com.bmi.fragment.about_fragment;
 import reverie.corporation.com.bmi.fragment.apps_fragment;
-import reverie.corporation.com.bmi.fragment.contact_fragment;
-import reverie.corporation.com.bmi.fragment.home_fragment;
-import reverie.corporation.com.bmi.fragment.pie_chart_fragment;
-import reverie.corporation.com.bmi.fragment.website_fragment;
+import reverie.corporation.com.bmi.fragment.home;
+import reverie.corporation.com.bmi.waistCalculation.fragment.WhatIsWaist;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.TextInputLayout;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.webkit.WebView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-
-import java.util.Calendar;
+import static com.github.mikephil.charting.charts.Chart.LOG_TAG;
 
 public class MainActivity extends AppCompatActivity {
 
     //Defining Variables
-    private Toolbar toolbar;
-    private NavigationView navigationView;
+    Toolbar toolbar;
     private DrawerLayout drawerLayout;
-    MenuItem mPreviousMenuItem;
-    private AdView mAdMobAdView;
-
-    private Dialog dialog, tipsDialog;
 
     final Context mContext = this;
 
-    EditText etWeight, etHeight;
-    ImageView cartoon;
     Typeface font;
-    Button btnSubmit, tipsButton, dietButton;
-    ImageButton cancelButton, tipsCancelButton;
-    TextView txtWelcome, txtWeightTitle, txtHeightTitle, txtNav_Header_Title, txtNav_Header_Message, resultText;
-    TextView txtTips1, txtTips2, txtTips3, txtTips4, txtTips5 ;
-    DatabaseHelpher helpher;
 
-    String oper = "";
+    String currentVersion, latestVersion;
+    Dialog dialog;
 
-    private Boolean firstTime = null;
-    private AlarmManager alarmManager;
-    private PendingIntent pendingIntent;
-    private Intent alarmIntent;
-    private Calendar alarmStartTime;
+    String mPlayStoreURL;
+
+    ProgressDialog progressDialog;
+
+    TextView mNavHeaderTitle, mNavHeaderMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // create our manager instance after the content view is set
+        SystemBarTintManager tintManager = new SystemBarTintManager(this);
+        // enable status bar tint
+        tintManager.setStatusBarTintEnabled(true);
+        // enable navigation bar tint
+        tintManager.setNavigationBarTintEnabled(true);
+        // set a custom tint color for all system bars
+        tintManager.setTintColor(Color.parseColor("#1a746b"));
+
         // Initializing Toolbar and setting it as the actionbar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        isFirstTime();
+        MainActivity.this.getSupportActionBar().setTitle(getString(R.string.bmi_home_toolbar));
 
         // Initializing Google AdMob
        /* mAdMobAdView = (AdView)findViewById(R.id.admob_adview);
@@ -113,40 +89,27 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         mAdMobAdView.loadAd(adRequest);*/
 
-        FontsOverride.setDefaultFont(this, "MONOSPACE", "android.ttf");
+        FontsOverride.setDefaultFont(MainActivity.this, "MONOSPACE", "android.ttf");
 
         font = Typeface.createFromAsset(getAssets(), "android.ttf");
 
-        txtWelcome = (TextView) findViewById(R.id.welcome);
-        txtWelcome.setText(getString(R.string.welcome_text));
-        txtWelcome.setTypeface(font);
+        mPlayStoreURL = "";
 
-        txtWeightTitle = (TextView) findViewById(R.id.weight_text);
-        txtWeightTitle.setText(getString(R.string.hint_weight));
-        txtWeightTitle.setTypeface(font);
+        progressDialog = new ProgressDialog(MainActivity.this);
 
-        txtHeightTitle = (TextView) findViewById(R.id.height_text);
-        txtHeightTitle.setText(getString(R.string.hint_height));
-        txtHeightTitle.setTypeface(font);
-
-        etWeight = (EditText) findViewById(R.id.etWeight);
-        etHeight = (EditText) findViewById(R.id.etHeight);
-
-        txtNav_Header_Title = (TextView) findViewById(R.id.nav_header_title);
-        txtNav_Header_Message = (TextView) findViewById(R.id.nav_header_message);
-
-        btnSubmit = (Button) findViewById(R.id.calculate);
-        btnSubmit.setText(getString(R.string.submit_button));
-        btnSubmit.setTypeface(font);
-
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                submitForm();
-            }
-        });
+        // Initializing Internet Check
+        if (hasConnection(MainActivity.this)){
+            // Check App Version
+            //CheckAppUpdateVersion();
+        }
 
         initNavigationDrawer();
+
+        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        home fragment = new home();
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.frame, fragment);
+        fragmentTransaction.commit();
 
     }
 
@@ -154,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
 
@@ -161,8 +125,8 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (id) {
 
-                    //Replacing the main content with about_fragment
-                    case R.id.about:
+                    //Replacing the main content with about us
+                    case R.id.about_us:
                         android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         about_fragment fragment = new about_fragment();
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -171,26 +135,26 @@ public class MainActivity extends AppCompatActivity {
                         drawerLayout.closeDrawers();
                         break;
 
-                    //Replacing the main content with contact_fragment
-                    case R.id.contact:
-                        contact_fragment fragment1 = new contact_fragment();
+                    //Replacing the main content with bmi
+                    case R.id.what_is_bmi:
+                        WhatIsBmi fragment1 = new WhatIsBmi();
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.frame, fragment1);
                         fragmentTransaction.commit();
                         drawerLayout.closeDrawers();
                         break;
 
-                    //Replacing the main content with website_fragment
-                    case R.id.website:
-                        website_fragment fragment2 = new website_fragment();
+                    //Replacing the main content with waist
+                    case R.id.what_is_waist:
+                        WhatIsWaist fragment2 = new WhatIsWaist();
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.frame, fragment2);
                         fragmentTransaction.commit();
                         drawerLayout.closeDrawers();
                         break;
 
-                    //Replacing the main content with apps_fragment
-                    case R.id.apps:
+                    //Replacing the main content with more apps
+                    case R.id.more_apps:
                         apps_fragment fragment3 = new apps_fragment();
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.frame, fragment3);
@@ -198,22 +162,23 @@ public class MainActivity extends AppCompatActivity {
                         drawerLayout.closeDrawers();
                         break;
 
-                    //Replacing the main content with pie_chart_fragment
-                    case R.id.pie_chart:
-                        pie_chart_fragment fragment4 = new pie_chart_fragment();
+                    //Replacing the main content with Profile
+                    case R.id.profile:
+                        EditProfile fragment4 = new EditProfile();
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.frame, fragment4);
                         fragmentTransaction.commit();
                         drawerLayout.closeDrawers();
                         break;
 
-                    //Replacing the main content with home_fragment
+                    //Replacing the main content with home
                     case R.id.home:
-                        home_fragment fragment5 = new home_fragment();
+                        home fragment5 = new home();
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.frame, fragment5);
                         fragmentTransaction.commit();
                         drawerLayout.closeDrawers();
+                        MainActivity.this.getSupportActionBar().setTitle(getString(R.string.bmi_home_title));
                         break;
 
                     //Rest of the case just show toast
@@ -226,6 +191,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         View header = navigationView.getHeaderView(0);
+        mNavHeaderMessage = (TextView)header.findViewById(R.id.nav_header_message);
+        mNavHeaderMessage.setText(getString(R.string.nav_header_Message));
+        mNavHeaderMessage.setTypeface(font);
+        mNavHeaderTitle = (TextView)header.findViewById(R.id.nav_header_title);
+        mNavHeaderTitle.setText(getString(R.string.nav_header_title));
+        mNavHeaderTitle.setTypeface(font);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
 
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close) {
@@ -242,272 +213,6 @@ public class MainActivity extends AppCompatActivity {
         };
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
-    }
-
-    private boolean isFirstTime() {
-        if (firstTime == null) {
-            SharedPreferences mPreferences = this.getSharedPreferences("first_time", Context.MODE_PRIVATE);
-            firstTime = mPreferences.getBoolean("firstTime", true);
-            if (firstTime) {
-                SharedPreferences.Editor editor = mPreferences.edit();
-                editor.putBoolean("firstTime", false);
-                editor.commit();
-                setNotification();
-            }
-        }
-        return firstTime;
-    }
-
-    /**
-     * Validating form
-     */
-    private void submitForm() {
-
-        int created_at = 0;
-        double result = 0;
-
-        if (etWeight.getText().toString().trim().isEmpty()) {
-            Toast.makeText(getApplicationContext(), getString(R.string.err_msg_weight), Toast.LENGTH_SHORT).show();
-        } else if (etHeight.getText().toString().trim().isEmpty()) {
-            Toast.makeText(getApplicationContext(), getString(R.string.err_msg_height), Toast.LENGTH_SHORT).show();
-        } else if (!etWeight.getText().toString().trim().isEmpty()){
-            String value= etWeight.getText().toString();
-            int number=Integer.parseInt(value);
-            Log.d("value", value);
-            if (number >= 2 && number <= 130 ){
-                Toast.makeText(getApplicationContext(), getString(R.string.text_validity), Toast.LENGTH_SHORT).show();
-            }
-            else {
-                Log.d("test", "test");
-                // custom dialog
-                dialog = new Dialog(MainActivity.this);  // always give context of activity.
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-                dialog.setContentView(R.layout.dialog_popup);
-
-                dialog.show();
-
-                // set the custom dialog components - text, image and button
-                resultText = (TextView) dialog.findViewById(R.id.result_text);
-                cartoon = (ImageView) dialog.findViewById(R.id.cartoon);
-                //image.setImageResource(R.drawable.app_icon);
-
-                tipsButton = (Button) dialog.findViewById(R.id.tipsButton);
-                tipsButton.setText(getString(R.string.tips_button));
-                tipsButton.setTypeface(font);
-                //dietButton = (Button) dialog.findViewById(R.id.dietButton);
-                //dietButton.setText(getString(R.string.diet_button));
-                //dietButton.setTypeface(font);
-                cancelButton = (ImageButton) dialog.findViewById(R.id.cancel_btn);
-
-                tipsButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                        // custom dialog
-                        tipsDialog = new Dialog(MainActivity.this);  // always give context of activity.
-                        tipsDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                        getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-                        tipsDialog.setContentView(R.layout.tips_dialog);
-
-                        tipsDialog.show();
-
-                        // set the custom dialog components - text, image and button
-                        txtTips1 = (TextView) tipsDialog.findViewById(R.id.tipsOne);
-                        txtTips1.setText(getString(R.string.err_msg_height));
-                        txtTips1.setTypeface(font);
-                        txtTips2 = (TextView) tipsDialog.findViewById(R.id.tipsTwo);
-                        txtTips1.setText(getString(R.string.err_msg_height));
-                        txtTips1.setTypeface(font);
-                        txtTips3 = (TextView) tipsDialog.findViewById(R.id.tipsThree);
-                        txtTips1.setText(getString(R.string.err_msg_height));
-                        txtTips1.setTypeface(font);
-                        txtTips4 = (TextView) tipsDialog.findViewById(R.id.tipsFour);
-                        txtTips1.setText(getString(R.string.err_msg_height));
-                        txtTips1.setTypeface(font);
-                        txtTips5 = (TextView) tipsDialog.findViewById(R.id.tipsFive);
-                        txtTips1.setText(getString(R.string.err_msg_height));
-                        txtTips1.setTypeface(font);
-
-                        tipsCancelButton = (ImageButton) tipsDialog.findViewById(R.id.cancel_btn_tips);
-
-                        tipsCancelButton.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                tipsDialog.dismiss();
-                            }
-                        });
-                    }
-                });
-
-                //dietButton.setOnClickListener(new View.OnClickListener() {
-                   // @Override
-                    //public void onClick(View v) {
-                     //   dialog.dismiss();
-                   // }
-                //});
-
-                cancelButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });
-
-                float Kg = 0;
-                float Inch = 0;
-                oper = "/";
-                oper = "*";
-                Kg = Float.parseFloat(etWeight.getText().toString());
-                Inch = Float.parseFloat(etHeight.getText().toString());
-
-                double Meter = Inch / 39.3701;
-                double KgInch = (Kg) / ((Meter) * (Meter));
-                result = KgInch;
-
-                if (KgInch < 15.0) {
-                    resultText.setText(getString(R.string.range_15));
-                    cartoon.setImageResource(R.drawable.figurestage1);
-                } else if ((KgInch >= 15.0) && (KgInch < 16.0)) {
-                    resultText.setText(getString(R.string.range_15_16));
-                    cartoon.setImageResource(R.drawable.figurestage2);
-                } else if ((KgInch >= 16.0) && (KgInch < 18.5)) {
-                    resultText.setText(getString(R.string.range_16_18));
-                    cartoon.setImageResource(R.drawable.figurestage3);
-                } else if ((KgInch >= 18.5) && (KgInch < 25.0)) {
-                    resultText.setText(getString(R.string.range_18_25));
-                    cartoon.setImageResource(R.drawable.figurestage4);
-                } else if ((KgInch >= 25.0) && (KgInch < 30.0)) {
-                    resultText.setText(getString(R.string.range_25_30));
-                    cartoon.setImageResource(R.drawable.figurestage5);
-                } else if ((KgInch >= 30.0) && (KgInch < 35.0)) {
-                    resultText.setText(getString(R.string.range_30_35));
-                    cartoon.setImageResource(R.drawable.figurestage6);
-                } else if ((KgInch >= 35.0) && (KgInch < 40.0)) {
-                    resultText.setText(getString(R.string.range_35_40));
-                    cartoon.setImageResource(R.drawable.figurestage7);
-                } else {
-                    resultText.setText(getString(R.string.range_40));
-                    cartoon.setImageResource(R.drawable.figurestage8);
-                }
-
-            }
-
-        }
-
-        else if(!etHeight.getText().toString().trim().isEmpty()){
-            String value2= etHeight.getText().toString();
-            int number2=Integer.parseInt(value2);
-             if (number2 > 170 && number2 <32){
-            Toast.makeText(getApplicationContext(), getString(R.string.text_validity), Toast.LENGTH_SHORT).show();
-            }
-            else {
-                // custom dialog
-                dialog = new Dialog(MainActivity.this);  // always give context of activity.
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-                dialog.setContentView(R.layout.dialog_popup);
-
-                dialog.show();
-
-                // set the custom dialog components - text, image and button
-                resultText = (TextView) dialog.findViewById(R.id.result_text);
-                cartoon = (ImageView) dialog.findViewById(R.id.cartoon);
-                //image.setImageResource(R.drawable.app_icon);
-
-                tipsButton = (Button) dialog.findViewById(R.id.tipsButton);
-                tipsButton.setText(getString(R.string.tips_button));
-                tipsButton.setTypeface(font);
-                //dietButton = (Button) dialog.findViewById(R.id.dietButton);
-                //dietButton.setText(getString(R.string.diet_button));
-                //dietButton.setTypeface(font);
-                cancelButton = (ImageButton) dialog.findViewById(R.id.cancel_btn);
-
-                tipsButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });
-
-               // dietButton.setOnClickListener(new View.OnClickListener() {
-                    //@Override
-                  //  public void onClick(View v) {
-                    //    dialog.dismiss();
-                   // }
-              //  });
-
-                cancelButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });
-
-                float Kg = 0;
-                float Inch = 0;
-                oper = "/";
-                oper = "*";
-                Kg = Float.parseFloat(etWeight.getText().toString());
-                Inch = Float.parseFloat(etHeight.getText().toString());
-
-                double Meter = Inch / 39.3701;
-                double KgInch = (Kg) / ((Meter) * (Meter));
-                result = KgInch;
-
-                if (KgInch < 15.0) {
-                    resultText.setText(getString(R.string.range_15));
-                } else if ((KgInch >= 15.0) && (KgInch < 16.0)) {
-                    resultText.setText(getString(R.string.range_15_16));
-                } else if ((KgInch >= 16.0) && (KgInch < 18.5)) {
-                    resultText.setText(getString(R.string.range_16_18));
-                } else if ((KgInch >= 18.5) && (KgInch < 25.0)) {
-                    resultText.setText(getString(R.string.range_18_25));
-                } else if ((KgInch >= 25.0) && (KgInch < 30.0)) {
-                    resultText.setText(getString(R.string.range_25_30));
-                } else if ((KgInch >= 30.0) && (KgInch < 35.0)) {
-                    resultText.setText(getString(R.string.range_30_35));
-                } else if ((KgInch >= 35.0) && (KgInch < 40.0)) {
-                    resultText.setText(getString(R.string.range_35_40));
-                } else {
-                    resultText.setText(getString(R.string.range_40));
-                }
-
-            }
-
-        }
-        else {
-            Toast.makeText(getApplicationContext(), getString(R.string.text_validity), Toast.LENGTH_SHORT).show();
-        }
-
-        //helpher = new DatabaseHelpher(MainActivity.this);
-        //helpher.insertIntoDB(result, created_at);
-
-    }
-
-    public void setNotification() {
-        alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        alarmIntent = new Intent(MainActivity.this, MyReceiver.class);
-        pendingIntent = PendingIntent.getBroadcast(  MainActivity.this, 0, alarmIntent, 0);
-
-        alarmStartTime = Calendar.getInstance();
-        alarmStartTime.set(Calendar.HOUR_OF_DAY, 21);
-        alarmStartTime.set(Calendar.MINUTE, 0);
-        alarmStartTime.set(Calendar.SECOND, 0);
-        alarmManager.setRepeating(AlarmManager.RTC, alarmStartTime.getTimeInMillis(), getInterval(), pendingIntent);
-
-        Log.d("Alarm Set: ", "Start");
-        Toast.makeText(getApplicationContext(), "Alarm Set", Toast.LENGTH_SHORT).show();
-    }
-
-    private int getInterval() {
-        int days = 7;
-        int hours = 24;
-        int minutes = 60;
-        int seconds = 60;
-        int milliseconds = 1000;
-        int repeatMS = days * hours * minutes * seconds * milliseconds;
-        return repeatMS;
     }
 
     @Override
@@ -543,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
         alertDialogBuilder.setNegativeButton(getString(R.string.dialog3_negative), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                home_fragment fragment6 = new home_fragment();
+                home fragment6 = new home();
                 fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.frame, fragment6);
                 fragmentTransaction.commit();
@@ -555,5 +260,116 @@ public class MainActivity extends AppCompatActivity {
         alert.show();
     }
 
+    // Internet check method
+    public boolean hasConnection(Context context){
+        ConnectivityManager cm=(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo wifiNetwork=cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        if (wifiNetwork != null && wifiNetwork.isConnected()){
+            return true;
+        }
+        NetworkInfo mobileNetwork=cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+        if (mobileNetwork != null && mobileNetwork.isConnected()){
+            return true;
+        }
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        if (activeNetwork != null && activeNetwork.isConnected()){
+            return true;
+        }
+        return false;
+    }
+
+    private String getCurrentVersion(){
+        PackageManager pm = this.getPackageManager();
+        PackageInfo pInfo = null;
+
+        try {
+            pInfo =  pm.getPackageInfo(this.getPackageName(),0);
+
+        } catch (PackageManager.NameNotFoundException e1) {
+            e1.printStackTrace();
+        }
+        String currentVersion = pInfo.versionName;
+
+        return currentVersion;
+    }
+
+    private class GetLatestVersion extends AsyncTask<String, String, String> {
+        String latestVersion;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog.setMessage(getString(R.string.please_wait));
+            progressDialog.setCancelable(false);
+            progressDialog.setCanceledOnTouchOutside(false);
+            progressDialog.show();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                //It retrieves the latest version by scraping the content of current version from play store at runtime
+                String urlOfAppFromPlayStore = mPlayStoreURL;   // mPlayStoreURL = "https://play.google.com/store/apps/details?id= your app package address";
+                Document  doc = Jsoup.connect(urlOfAppFromPlayStore).get();
+                latestVersion = doc.getElementsByAttributeValue("itemprop","softwareVersion").first().text();
+
+            }catch (Exception e){
+                e.printStackTrace();
+
+            }
+
+            return latestVersion;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            progressDialog.hide();
+        }
+    }
+
+    private void CheckAppUpdateVersion() {
+        String latestVersion = "";
+        String currentVersion = getCurrentVersion();
+        //Log.d(LOG_TAG, "Current version = " + currentVersion);
+        try {
+            latestVersion = new GetLatestVersion().execute().get();
+            //Log.d(LOG_TAG, "Latest version = " + latestVersion);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        //If the versions are not the same
+        if(!currentVersion.equals(latestVersion)){
+            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setCancelable(false);
+            builder.setTitle(getString(R.string.app_update_title));
+            builder.setMessage(getString(R.string.app_update_available));
+
+            //final AlertDialog ad = builder.show();
+
+            builder.setPositiveButton(getString(R.string.update_app), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    //Click button action
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=your app package address")));
+                    dialog.dismiss();
+                }
+            });
+
+            builder.setNegativeButton(getString(R.string.cancel_update), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    //Cancel button action
+                    dialog.dismiss();
+                }
+            });
+
+            builder.setCancelable(false);
+            builder.show();
+        }
+    }
 
 }

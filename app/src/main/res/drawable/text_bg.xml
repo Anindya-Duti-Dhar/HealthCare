@@ -3,7 +3,7 @@
     <item android:state_pressed="true">
         <shape>
             <stroke android:width="1dip" android:color="@color/ash_color_light" />
-            <solid android:color="@color/White" />
+            <solid android:color="@color/common_page_bg" />
         </shape>
     </item>
 
@@ -11,7 +11,7 @@
         <shape android:shape="rectangle">
             <corners android:radius="0px"/>
             <stroke android:width="1dip" android:color="@color/ash_color_light" />
-            <solid android:color="@color/White"  />
+            <solid android:color="@color/common_page_bg"  />
         </shape>
     </item>
 

@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_page_bg"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="4"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.3"
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <!--upper  two cards-->
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <!--upper 1st card-->
+
+                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/waist_current_cardview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:scaleType="centerCrop"
+                    card_view:cardCornerRadius="5dp"
+                    card_view:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:weightSum="3.5">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_weight=".85">
+
+                            <TextView
+                                android:id="@+id/waist_title_card"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_gravity="bottom"
+                                android:lineSpacingExtra="2dp"
+                                android:text="@string/current_waist_title"
+                                android:textColor="@color/contact_profile_blue"
+                                android:textSize="12sp"
+                                android:textAppearance="@style/WelcomePagesTextFont"
+                                android:textStyle="normal" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_weight="1.65"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/waist_card"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="2dp"
+                                android:gravity="center_vertical"
+                                android:text="34.00"
+                                android:textColor="@color/soft_red"
+                                android:textSize="28sp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/waist_card_unit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="3dp"
+                                android:gravity="center_vertical"
+                                android:lineSpacingExtra="2dp"
+                                android:textAppearance="@style/WelcomePagesTextFont"
+                                android:text="@string/waist_unit"
+                                android:textColor="@color/soft_red"
+                                android:textSize="12sp"
+                                android:textStyle="normal" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/waist_current_date_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:layout_marginLeft="2dp"
+                                android:gravity="top"
+                                android:textAppearance="@style/WelcomePagesTextFont"
+                                android:text="@string/current_date"
+                                android:textColor="@color/contact_profile_blue"
+                                android:textSize="12sp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/waist_current_date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:layout_marginLeft="3dp"
+                                android:gravity="top"
+                                android:text="২৬/১২/২০১৬"
+                                android:textColor="@color/contact_profile_blue"
+                                android:textSize="12sp"
+                                android:textStyle="normal" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <!--upper 2nd card-->
+
+                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/waist_expected_cardview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:scaleType="centerCrop"
+                    card_view:cardCornerRadius="8dp"
+                    card_view:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:weightSum="3.5">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_weight=".85">
+
+                            <TextView
+                                android:id="@+id/desired_waist_title_card"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:layout_marginLeft="8dp"
+                                android:gravity="center_vertical"
+                                android:lineSpacingExtra="2dp"
+                                android:text="@string/desired_waist"
+                                android:textAppearance="@style/WelcomePagesTextFont"
+                                android:textColor="@color/contact_profile_blue"
+                                android:textSize="12sp"
+                                android:textStyle="normal" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_weight="1.65"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/desired_waist_card"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="2dp"
+                                android:gravity="center_vertical"
+                                android:text="30.00"
+                                android:textColor="@color/YoColor"
+                                android:textSize="28sp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/desired_waist_card_unit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="3dp"
+                                android:gravity="center_vertical"
+                                android:text="@string/waist_unit"
+                                android:textAppearance="@style/WelcomePagesTextFont"
+                                android:textColor="@color/YoColor"
+                                android:textSize="12sp"
+                                android:textStyle="normal" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/waist_difference"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:layout_marginLeft="2dp"
+                                android:gravity="top"
+                                android:lineSpacingExtra="2dp"
+                                android:text="4.00"
+                                android:textColor="@color/soft_red"
+                                android:textSize="13sp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/weight_difference_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:layout_marginLeft="3dp"
+                                android:gravity="top"
+                                android:textAppearance="@style/WelcomePagesTextFont"
+                                android:text="@string/waist_difference_title"
+                                android:textColor="@color/contact_profile_blue"
+                                android:textSize="12sp"
+                                android:textStyle="normal" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2.7">
+            <!-- Lower card-->
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/meter_cardview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                android:scaleType="centerCrop"
+                card_view:cardCornerRadius="8dp"
+                card_view:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:weightSum="5.5">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:id="@+id/waist_meter_status_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:lineSpacingExtra="5dp"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"
+                            android:text="@string/according_to_waist"
+                            android:textColor="@color/Black"
+                            android:textSize="13sp"
+                            android:textAppearance="@style/WelcomePagesTextFont"
+                            android:textStyle="normal"  />
+
+                        <TextView
+                            android:id="@+id/waist_meter_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"
+                            android:lineSpacingExtra="5dp"
+                            android:paddingBottom="8dp"
+                            android:paddingTop="8dp"
+                            android:text="@string/waist_meter_normal_status"
+                            android:textColor="@color/soft_red"
+                            android:textSize="16sp"
+                            android:textAppearance="@style/WelcomePagesTextFont"
+                            android:textStyle="normal"  />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/common_action_bar_splitter"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="2.7">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@color/reverie_bg">
+
+                            <ImageView
+                                android:id="@+id/waist_meter_image"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="8dp"
+                                android:paddingRight="5dp"
+                                android:paddingLeft="5dp"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/normal"
+                                android:layout_centerVertical="true"
+                                android:layout_centerHorizontal="true" />
+
+                            <TextView
+                                android:id="@+id/waist_result"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center_horizontal"
+                                android:text="৫৬.৭৮"
+                                android:textColor="@color/soft_red"
+                                android:textSize="24sp"
+                                android:textStyle="normal"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:background="@color/reverie_bg"
+                        android:layout_weight=".8">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:layout_centerInParent="true"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/waist_year"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:text="30 Y."
+                                    android:layout_marginRight="8dp"
+                                    android:textColor="@color/contact_profile_ash"
+                                    android:textSize="13sp"
+                                    android:textStyle="normal" />
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="bottom"
+                                    android:background="@color/common_action_bar_splitter"/>
+
+                                <TextView
+                                    android:id="@+id/waist"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:layout_marginLeft="8dp"
+                                    android:layout_marginRight="8dp"
+                                    android:text="80.56 kg"
+                                    android:textColor="@color/contact_profile_ash"
+                                    android:textSize="13sp"
+                                    android:textStyle="normal" />
+
+                                <View
+                                    android:layout_width="1dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="bottom"
+                                    android:background="@color/common_action_bar_splitter"/>
+
+                                <TextView
+                                    android:id="@+id/waist_height"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="8dp"
+                                    android:gravity="center"
+                                    android:text="60 Inch"
+                                    android:textColor="@color/contact_profile_ash"
+                                    android:textSize="13sp"
+                                    android:textStyle="normal" />
+
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:layout_alignParentBottom="true"
+                                android:background="@color/common_action_bar_splitter"/>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/waist_meter_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:gravity="center"
+                            android:text="@string/waist_meter_title"
+                            android:textColor="@color/contact_profile_blue"
+                            android:textSize="18sp"
+                            android:textAppearance="@style/WelcomePagesTextFont"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/waist_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_action_content_add"
+        app:backgroundTint="@color/ripple_green"
+        app:fabSize="normal"/>
+
+    <!--  <com.google.android.gms.ads.AdView
+      android:id="@+id/admob_adview"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_centerHorizontal="true"
+      ads:adSize="BANNER"
+      ads:adUnitId="@string/banner_footer" />-->
+
+</RelativeLayout>
+

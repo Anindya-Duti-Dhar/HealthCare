@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/common_page_bg"
+    tools:context=".start.activity.Profile">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/current_cardview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        ads:cardCornerRadius="5dp"
+        ads:cardElevation="4dp"
+        android:layout_margin="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="4.5">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1.025"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/age_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/input_age"
+                    android:textColor="@color/contact_profile_blue"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/age_text_input_layout"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etAge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:inputType="numberDecimal"
+                        android:gravity="center"
+                        android:ems="3"
+                        android:hint="@string/hint_age" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <com.jaredrummler.materialspinner.MaterialSpinner
+                    android:id="@+id/gender_spinner"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    app:ms_dropdown_max_height="350dp"
+                    app:ms_dropdown_height="wrap_content"
+                    android:hint="Gender"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1.025"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/height_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="5dp"
+                    android:visibility="visible"
+                    android:text="@string/hint_height"
+                    android:textColor="@color/contact_profile_blue"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/feet_text_input_layout"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etFeet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:inputType="numberDecimal"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:ems="3"
+                        android:hint="@string/hint_feet"  />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/inch_text_input_layout"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:visibility="visible"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etInch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:inputType="numberDecimal"
+                        android:ems="3"
+                        android:hint="@string/hint_inch" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <com.jaredrummler.materialspinner.MaterialSpinner
+                    android:id="@+id/height_unit_spinner"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    app:ms_dropdown_max_height="350dp"
+                    app:ms_dropdown_height="wrap_content"
+                    android:hint="Unit"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1.025"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/weight_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="5dp"
+                    android:visibility="visible"
+                    android:text="@string/hint_weight"
+                    android:textColor="@color/contact_profile_blue"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/kg_text_input_layout"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_gravity="center"
+                    android:visibility="visible"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etkg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:inputType="numberDecimal"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:ems="3"
+                        android:hint="@string/hint_kg"  />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/gm_text_input_layout"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etGm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:inputType="numberDecimal"
+                        android:gravity="center"
+                        android:ems="3"
+                        android:hint="@string/hint_gm"  />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <com.jaredrummler.materialspinner.MaterialSpinner
+                    android:id="@+id/weight_unit_spinner"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    app:ms_dropdown_max_height="350dp"
+                    app:ms_dropdown_height="wrap_content"
+                    android:hint="Unit"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1.025"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/waist_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="5dp"
+                    android:visibility="visible"
+                    android:text="@string/hint_waist"
+                    android:textColor="@color/contact_profile_blue"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/inch_cm_text_input_layout"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_gravity="center"
+                    android:visibility="visible"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etInchCm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:inputType="numberDecimal"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:ems="3"
+                        android:hint="@string/hint_inch"  />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/waist_cm_text_input_layout"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etWaistCm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:inputType="numberDecimal"
+                        android:ems="3"
+                        android:hint="@string/hint_cm"  />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <com.jaredrummler.materialspinner.MaterialSpinner
+                    android:id="@+id/waist_unit_spinner"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    app:ms_dropdown_max_height="350dp"
+                    app:ms_dropdown_height="wrap_content"
+                    android:hint="Unit"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight=".4"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btnStart"
+                    android:layout_width="120dp"
+                    android:layout_height="30dp"
+                    android:text="@string/save_profile"
+                    android:textColor="@color/white_text_color"
+                    android:textSize="13sp"
+                    android:background="@drawable/view_shape"
+                    android:foreground="?android:attr/selectableItemBackground"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+    <!--  <com.google.android.gms.ads.AdView
+      android:id="@+id/admob_adview"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_centerHorizontal="true"
+      ads:adSize="BANNER"
+      ads:adUnitId="@string/banner_footer" />-->
+
+</RelativeLayout>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">সুস্থ জীবন</string>
+    <string name="app_name">সুখী</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">সেটিংস</string>
@@ -10,8 +10,17 @@
     <string name="err_msg_weight">আপনার ওজন প্রবেশ করুন </string>
     <string name="err_msg_height">আপনার উচ্চতা প্রবেশ করুন </string>
 
-    <string name="hint_weight">আপনার ওজন (কেজি)</string>
-    <string name="hint_height">আপনার উচ্চতা (ইঞ্চি)</string>
+    <string name="hint_weight">ওজনঃ </string>
+    <string name="hint_height">উচ্চতাঃ </string>
+    <string name="hint_waist">কোমরঃ </string>
+
+    <string name="hint_age"><font size="8">বছর</font></string>
+    <string name="input_age">বয়সঃ</string>
+    <string name="hint_kg"><font size="8">কেজি</font></string>
+    <string name="hint_inch"><font size="8">ইঞ্চি</font></string>
+    <string name="hint_cm"><font size="8">সেমিঃ</font></string>
+    <string name="hint_feet"><font size="8">ফিট</font></string>
+    <string name="hint_gm"><font size="8">গ্রাম</font></string>
 
     <string name="welcome_text">আপনার ওজন ও উচ্চতা প্রবেশ করুন</string>
     <string name="submit_button">ফলাফল জানুন</string>
@@ -28,14 +37,16 @@
     <string name="range_35_40">আপনার স্বাস্থ্য বিপদসীমা অতিক্রম করেছে</string>
     <string name="range_40">আপনার স্বাস্থ্য বিপজ্জনক পর্যায়ে রয়েছে। আজি এ ডাক্তার এর শরণাপন্ন হউন।</string>
 
-    <string name="nav_header_title">সুস্থ জীবন</string>
+    <string name="nav_header_title">সুখী</string>
     <string name="nav_header_Message">সূচি নির্ধারণ করুন</string>
 
+    <string name="menu_title1">বাড়তি তথ্য</string>
+    <string name="menu_title2">আমাদের সম্পর্কে</string>
     <string name="menu_about">আমাদের সম্পর্কে</string>
-    <string name="menu_contact">যোগাযোগ</string>
-    <string name="menu_website">আমাদের ওয়েবসাইট</string>
-    <string name="menu_apps">আমাদের অ্যাপস</string>
-    <string name="menu_pie_chart">চার্ট</string>
+    <string name="menu_bmi">বিএমাই কি</string>
+    <string name="menu_waist">কোমর পরিমাপ কি</string>
+    <string name="menu_apps">অন্যান্য অ্যাপস</string>
+    <string name="menu_profile">প্রোফাইল</string>
     <string name="menu_home">হোম</string>
 
     <string name="first_column">জানুয়ারি থেকে এপ্রিল</string>
@@ -43,6 +54,8 @@
     <string name="third_column">সেপ্টেম্বর থেকে ডিসেম্বর</string>
 
     <string name="lab_mimosa">ল্যাব মিমোসা</string>
+
+    <string name="contact_dialog_title">যোগাযোগ</string>
 
     <string name="fb">ফেইসবুক</string>
     <string name="gplus">গুগল প্লাস</string>
@@ -67,12 +80,22 @@
     <string name="dialog3_button">হ্যাঁ</string>
     <string name="dialog3_negative">না</string>
 
+    <string name="first_success_title">দারুন!</string>
+    <string name="first_success_message">আপনার সব তথ্য সংরক্ষন করা হল</string>
+
+    <string name="second_success_title">সম্পাদিত!</string>
+    <string name="second_success_message">আপনাকে হোমে ফিরিয়ে নিয়ে যাচ্ছি</string>
+    <string name="second_success_button">ধন্যবাদ</string>
+
 
     <string name="about_title">রেভারি কর্পোরেশন লিমিটেড</string>
     <string name="about_message">মোবাইল গেম এবং অ্যাপ্লিকেশান নির্মাতা প্রতিষ্ঠান</string>
-    <string name="about_text">গত চার বছরে গুগল এন্ড্রয়েড ও অ্যাপেল আইওএস প্লাটফর্মে ৭৫ টির ও বেশি মোবাইল অ্যাপ্লিকেশান ও মোবাইল গেম বানিয়েছে রেভারি। রেভারি দেশে এবং দেশের বাইরে আমেরিকা, কানাডা, ইউরোপের অনেক কোম্পানির সাথে কাজ করছে। এর মধ্যে হাউ টু ওয়্যার এ শাড়ি, ম্যাচ মেকার, উন্মাদ, ফ্রাপি বার্ড, রক অ্যান্ড রোল, পোসড এগ, ক্যানভাস, ক্রিকেট রেকর্ড- ২০১১,  এস্কেপবোট, হাউমাচ ইউ নো বাংলাদেশ, ডেথ কিস, হলিউড ম্যানিয়া ব্যাপক জনপ্রিয়তা পেয়েছে। \nশুধু মোবাইল অ্যাপ্লিকেশান, গেম ডেভেলপমেন্টই নয়, বর্তমানে কোম্পানিটি ওয়েবসাইট ডেভেলপমেন্ট, কাস্টম ওয়েব অ্যাপ্লিকেশান, অ্যাপ স্টোর সার্ভিস, মোবাইল অ্যাপ মার্কেটিং, অ্যাপ স্টোর রিসার্চ এবং আইটিইএস সার্ভিস নিয়ে কাজ করছে।</string>
+    <string name="about_text">গত পাঁচ বছরে গুগল এন্ড্রয়েড ও অ্যাপেল আইওএস প্লাটফর্মে ৭৫ টির ও বেশি মোবাইল অ্যাপ্লিকেশান ও মোবাইল গেম বানিয়েছে রেভারি। রেভারি দেশে এবং দেশের বাইরে আমেরিকা, কানাডা, ইউরোপের অনেক কোম্পানির সাথে কাজ করছে। এর মধ্যে হাউ টু ওয়্যার এ শাড়ি, ম্যাচ মেকার, উন্মাদ, ফ্রাপি বার্ড, রক অ্যান্ড রোল, পোসড এগ, ক্যানভাস, ক্রিকেট রেকর্ড- ২০১১,  এস্কেপবোট, হাউমাচ ইউ নো বাংলাদেশ, ডেথ কিস, হলিউড ম্যানিয়া ব্যাপক জনপ্রিয়তা পেয়েছে। \nশুধু মোবাইল অ্যাপ্লিকেশান, গেম ডেভেলপমেন্টই নয়, বর্তমানে কোম্পানিটি ওয়েবসাইট ডেভেলপমেন্ট, কাস্টম ওয়েব অ্যাপ্লিকেশান, অ্যাপ স্টোর সার্ভিস, মোবাইল অ্যাপ মার্কেটিং, অ্যাপ স্টোর রিসার্চ এবং আইটিইএস সার্ভিস নিয়ে কাজ করছে।</string>
 
     <string name="text_validity">দয়া করে বাস্তব সম্মত তথ্য প্রবেশ করুন</string>
+    <string name="text_engvalidity">দয়া করে ইংরেজীতে তথ্য প্রবেশ করুন</string>
+    <string name="text_errorvalidity">ভূল!</string>
+
 
 
     <string name="tips1">পরিমিত আহার করুন ৷</string>
@@ -80,6 +103,125 @@
     <string name="tips3">প্রতিদিন ফল্মূল খান</string>
     <string name="tips4">প্রতিদিন সাঁতার কাটুন</string>
     <string name="tips5">পরিমিত ঘুমানোর চেষ্টা করুন</string>
+
+
+    <string name="exerciseGoButton">বিস্তারিত</string>
+    <string name="exerciseInstructionButton">নিয়মাবলী</string>
+    <string name="exerciseDetailsTitle">নিয়মাবলীঃ</string>
+    <string name="exerciseStartButton">শুরু করুন</string>
+
+    <!--Bmi Home-->
+    <string name="current_weight_title">বর্তমান ওজন</string>
+    <string name="weight_unit">কেজি</string>
+    <string name="current_date">তারিখঃ </string>
+    <string name="desired_weight">কাঙ্ক্ষিত ওজন</string>
+    <string name="weight_difference_title">কেজি পার্থক্য</string>
+    <string name="age">বছর</string>
+    <string name="height">ইঞ্চি</string>
+    <string name="bmi_meter_title">আপনার বিএমআই</string>
+    <string name="bmi_meter_abnormal_status">আপনার ওজন বিপদজ্জনক</string>
+    <string name="bmi_meter_normal_status">আপনার ওজন স্বাভাবিক</string>
+    <string name="bmi_meter_underweight_status">আপনার ওজন কম</string>
+    <string name="bmi_meter_overweight_status">আপনার ওজন বাড়তি</string>
+    <string name="bmi_meter_obesity_status">আপনার ওজন মেদবহুল</string>
+
+    <string name="bmi_dialog_title_text_hint">প্রয়োজনীয় তথ্য</string>
+    <string name="bmi_dialog_footer_text_hint">লিঙ্গ এবং বয়স পরিবর্তনে প্রোফাইল মেনুতে যান</string>
+    <string name="bmi_dialog_button">জানুন</string>
+    <string name="bmi_dialog_height">উচ্চতাঃ </string>
+    <string name="bmi_dialog_weight">ওজনঃ </string>
+    <string name="bmi_home_title">বিএমআই</string>
+
+    <string name="according_to_bmi">বিএমআই অনুসারে</string>
+    <!--Bmi home end-->
+
+    <!--Waist Home-->
+    <string name="current_waist_title">বর্তমান কোমর</string>
+    <string name="waist_unit">ইঞ্চি</string>
+    <string name="desired_waist">কাঙ্ক্ষিত কোমর</string>
+    <string name="waist_difference_title">ইঞ্চি পার্থক্য</string>
+    <string name="waist_meter_title">আপনার কোমর</string>
+    <string name="waist_meter_abnormal_status">আপনার স্বাস্থ্য বিপদজ্জনক</string>
+    <string name="waist_meter_normal_status">আপনার স্বাস্থ্য স্বাভাবিক</string>
+    <string name="waist_meter_underweight_status">আপনি স্বাভাবিক চিকন</string>
+    <string name="waist_meter_overweight_status">আপনার স্বাস্থ্য মোটা</string>
+    <string name="waist_meter_obesity_status">আপনি বাড়তি মোটা</string>
+
+    <string name="waist_dialog_waist">কোমরঃ </string>
+    <string name="waist_home_title">কোমর</string>
+
+    <string name="according_to_waist">অনুপাত অনুসারে</string>
+    <!--Waist home end-->
+
+
+
+    <!--Exercise-->
+    <!--Instructions List-->
+    <string name="ab_crunches_title">এবডোমিনাল ক্রাঞ্চেশ</string>
+    <string name="high_step_title">হাই  স্টেপিং</string>
+    <string name="jumping_title">জাম্পিং জ্যাক্স</string>
+    <string name="lunges_title">লাংস</string>
+    <string name="plank_title">প্লাঙ্ক</string>
+    <string name="push_up_title">পুশ আপস</string>
+    <string name="push_rotate_title">পুশ আপস রোটেশন</string>
+    <string name="side_plank_title">সাইড প্লান্কস</string>
+    <string name="squats_title">স্কোয়াটস</string>
+    <string name="step_up_title">স্টেপ আপ অন টু চেয়ার</string>
+    <string name="triceps_title">ট্রাইসেপ্স ডিপস অন চেয়ার</string>
+    <string name="wall_sit_title">ওয়াল-সিট্</string>
+    <!--Instructions List End-->
+
+    <string name="ab_crunches_details">এবডোমিনাল ক্রাঞ্চেশ (পেটের সংকোচন) ব্যায়ামে আপনি আপনার পিঠের উপর ভর দিয়ে পায়ের হাটু ৪৫ ডিগ্রী ভাঁজ করে চিৎ হয়ে শুয়ে পড়ুন। এবার শরীরের উপরি ভাগ ভাঁজ করে আনুন। হাত পায়ের দিকে সোজা রাখুন। এভাবে কয়েক সেকেন্ড থাকুন এবং পূর্বের অবস্থানে যান। একইভাবে ১০-২০ বার পুনরাবৃত্তি করুন।\nএটি প্রাথমিক ভাবে তল পেটের পেশী গঠনে সাহায্য করে।\nটিপস: নাক দিয়ে নিশ্বাস নিন মুখ দিয়ে ছাড়ুন। তলপেট শক্ত রাখুন। কোনরকম ব্যাথা এড়াতে মাথা মেরুদন্ড বরাবর রাখুন।</string>
+    <string name="high_step_details">হাই  স্টেপিং (উচ্চ পদবিন্যাস) ব্যায়ামে আপনি আপনার অবস্থান স্থির রেখে দৌড়ান। প্রাথমিক ভাবে কঠিন মনে হলে এক পা মেঝেতে রেখে আরেক পায়ের হাটু ভাঁজ করে উঁচু করুন। এভাবে ৫০-১০০ বার পুনরাবৃত্তি করুন।\nটিপস: ব্যায়াম করার সময় আপনার মেরুদন্ড এবং শরীরের উপরের অংশ সোজা রাখুন। তলপেট শক্ত রাখুন।</string>
+    <string name="jumping_details">জাম্পিং জ্যাক্স (লাফ-ঝাঁপ) ব্যায়ামে আপনি আপনার দুই পা এক সাথে এবং দুই হাত শরীর এর দুই পাশে রেখে শুরু করুন। এখন উপর দিকে লাফ দিয়ে দুই পা ফাঁকা করুন এবং দুই হাত মাথার উপর তুলুন। এবার আবার আগের অবস্থানে আসুন। এভাবে পুণরাবৃত্তি করুন। শুরুতে ২০/২৫ বার করুন।  ধীরেধীরে বাড়াতে থাকুন।\nএই অনুশীলনের মাধ্যমে পুরো শরীরের চর্চা হয় এবং শরীরের বড় মাংশ পেশীর চর্চা হয়।\nটিপস: এই শারীরিক চর্চাটি করার সময় নাক দিয়ে নিঃশ্বাস নিন এবং শ্বাস প্রশ্বাস স্বাভাবিক রাখুন। কোনরকম শারীরিক সমস্যা এড়াতে  মেরুদন্ড সোজা রাখুন।</string>
+    <string name="lunges_details">লাংস (সম্মুখ দিকে ঝাঁপ) ব্যায়ামে আপনি আপনার কোমরের দু পাশ দু হাত দিয়ে ধরে সোজা হয়ে দাঁড়ান। ডান পা যথা সম্ভব এগিয়ে নিয়ে বাম পা ভাঁজ করে মেঝের সমান্তরাল এ রাখুন। ১০ সেকেন্ড এভাবে থেকে আবার সোজা হয়ে দাঁড়ান এবং দিক পরিবর্তন করে প্রক্রিয়াটি অনুসরণ করুন। ২০-৪০ বার পুনরাবৃত্তি করুন।\nটিপস: মেরুদন্ড সোজা রাখুন। তলপেট শক্ত রাখুন।</string>
+    <string name="plank_details">প্লাঙ্ক (তক্তার উপর ব্যায়াম) ব্যায়ামে আপনি আপনার হাতের সামনের অংশ এবং পায়ের আঙুলের উপর ভর দিয়ে সোজা হয়ে মেঝেতে চিৎ হয়ে শুয়ে পড়ুন। আবার সোজা হয়ে দাঁড়ান। এভাবে ২০-৪০ বার পুনরাবৃত্তি করুন।\nএই ব্যায়াম পেট, পিঠ ও কাঁধ শক্তিশালী করে।\nটিপস: মেরুদন্ড সোজা রাখুন। তলপেট শক্ত রাখুন।</string>
+    <string name="push_up_details">পুশ আপস (উপরে তুলে ধরুন) ব্যায়ামে আপনি আপনার হাতের উপর ভর দিয়ে লম্বা ভাবে উপুর হয়ে শুয়ে পড়ুন। শরীর সটান অর্থাৎ মেরুদন্ড সোজা রেখে হাতের উপর ভর দিয়ে উঁচু হন এবং হাতের উপর ভর রেখেই কনুই ভাঁজ করে নিচু হন। এভাবে ২০-৫০ বার পুনরাবৃত্তি করুন।\nএই ব্যায়াম বুক, কাঁধ, হাতের উপরের অংশ, পিঠ এবং পায়ের কাজ করে।\nটিপস: শ্বাস প্রশ্বাস স্বাভাবিক রাখুন।</string>
+    <string name="push_rotate_details">পুশ আপস রোটেশন (উপরে তুলে ধরে আবর্তন) ব্যায়ামে আপনি পুশ-আপ ব্যায়ামের মতই শুরু করুন। পুশ-আপ ব্যায়াম টি করার সময় যখন নিচ থেকে উপরে উঠবেন তখন শরীর বাম দিক ঘুরিয়ে বাম হাতের উপর ভর দিয়ে হাত ও শরীর সোজা রাখুন এবং ডান হাত উপরের দিকে সোজা করে রাখুন। ১০ সেকেন্ড এভাবে থেকে পূর্বের অবস্থানে যান এবং অপর হাত দিয়ে ধাপ গুলো অনুসরণ করুন। এভাবে ১০-২০ বার পুনরাবৃত্তি করুন।\nটিপস: মেরুদন্ড সোজা রাখুন। তলপেট শক্ত রাখুন।</string>
+    <string name="side_plank_details">সাইড প্লান্কস (পার্শ্ব তক্তার উপর ব্যায়াম) ব্যায়ামে আপনি আপনার ডান হাতের সামনের অংশের উপর ভর দিয়ে হাত শরীরের সাথে ৯০ ডিগ্রী রেখে) শরীর সোজা রেখে মেঝেতে শুয়ে পড়ুন। ১০ সেকেন্ড পরপর দিক পরিবর্তন করুন। এভাবে ২০-৩০ বার করুন।\nটিপস: মেরুদন্ড সোজা রাখুন। তলপেট শক্ত রাখুন।</string>
+    <string name="squats_details">স্কোয়াটস (উবু হওয়া) ব্যায়ামে আপনি আপনার শরীর এর দুই পাশে হাত সোজা রেখে দাড়ান। এবার ধীরেধীরে বসুন যেন আপনার উরু মেঝের সঙ্গে সমান্তরাল হয়। হাত সামনের দিকে সোজা রেখে উঁচু করুন।কয়েক সেকেন্ড এভাবে থেকে আবার সোজা হয়ে দাঁড়ান এবং হাত শরীর এর পশে সোজা করে রাখুন। এভাবে ২০-৪০ বার পুনরাবৃত্তি করুন।\nটিপস: মেরুদন্ড সোজা রাখুন। তলপেট শক্ত রাখুন।</string>
+    <string name="step_up_details">স্টেপ আপ অন টু চেয়ার (চেয়ারের নিয়ে ব্যায়াম) ব্যায়ামে আপনি একটি চেয়ার এর সামনে দাঁড়ান। এবার মেরুদন্ড সোজা রেখে পা এর উপর ভর দিয়ে চেয়ার উপর উঠুন এবং নামুন। ৩০-৫০ বার পুনরাবৃত্তি করুন।\nব্যায়াম টি পা এবং নিতম্ব শক্তিশালী করার জন্য কাজ করে।\nটিপস: শ্বাস প্রশ্বাস স্বাভাবিক রাখুন।</string>
+    <string name="triceps_details">ট্রাইসেপ্স ডিপস অন চেয়ার (মাংসপেশী চেয়ারের দিকে নিম্নমুখী করে) ব্যায়ামে আপনি শুরুতে চেয়ার এ বসুন। দুই হাত দিয়ে চেয়ারের দুই প্রান্ত ধরে হিপ চেয়ার থেকে সামনের দিকে আনুন এবং হাতে ভর দিয়ে হিপ নিচু করুন। এভাবে ১০ সেকেন্ড থেকে আগের অবস্থানে আসুন। ১০-২০ বার পুনরাবৃত্তি করুন। মেরুদন্ড সোজা রাখুন পেট শক্ত রাখুন।\nটিপস: শ্বাস প্রশ্বাস স্বাভাবিক রাখুন।</string>
+    <string name="wall_sit_details">ওয়াল-সিট্ (প্রাচীরে বসা) ব্যায়ামে আপনি দেয়ালের সাথে পিঠ লাগিয়ে চেয়ার এ বসার মতো বসুন যেন আপনার পায়ের হাঁটু ৯০ ডিগ্রী তে থাকে। হাত দেয়ালের বিপরীতে এবং পা থেকে উপরে রাখুন। এভাবে ১০-২০ সেকেণ্ড থাকুন তারপর স্বাভাবিক অবস্থানে আসুন। এভাবে ১০ বার পুনরাবৃত্তি করুন।\nটিপস: শ্বাস প্রশ্বাস স্বাভাবিক এবং মেরুদন্ড সোজা রাখুন।</string>
+
+    <!--Exercise End-->
+    <string name="profile_waist_title">কোমরঃ </string>
+    <string name="profile_age_title">বয়সঃ </string>
+    <string name="profile_title">আপনার প্রোফাইল</string>
+    <string name="profile_button">প্রবেশ করুন</string>
+
+    <string name="welcome_one_title">বিএমআই নির্ণয়</string>
+    <string name="welcome_one_message">বিএমআই আর আদর্শ ওজন অনুসারে জেনে নিন আপনার স্বাস্থ্যাবস্থা</string>
+    <string name="welcome_two_title">কোমরের মেদ নির্ণয়</string>
+    <string name="welcome_two_message">কোমর ও উচ্চতার অনুপাত অনুসারে জেনে নিন আপনি কেমন স্বাস্থ্যের অধিকারী</string>
+    <string name="welcome_three_title">ঘরোয়া শরীর চর্চা</string>
+    <string name="welcome_three_message">জেনে নিন কিছু ঘরোয়া শরীর চর্চার নিয়ম কানুন</string>
+    <string name="skip">এড়িয়ে যান</string>
+    <string name="next">পরবর্তী পাতা</string>
+    <string name="save_profile">সংরক্ষন করুন</string>
+
+    <string name="what_is_waist_details">একজন ব্যাক্তির কোমর থেকে উচ্চতার অনুপাত, একে  কোমর থেকে গঠন এর অনুপাত ও বলা হয়। এটি কোমর এর পরিধিকে উচ্চতা দিয়ে ভাগ করে বের করা হয়, এখানে কোমরের পরিধি এবং উচ্চতা একই পরিমাপক দিয়ে মাপা হয়।  কোমর থেকে উচ্চতার অনুপাত হচ্ছে শরীর এ চর্বির পরিমাপ। কোমর থেকে উচ্চতার অনুপাত অধিক হলে শরীরে মেদ ঘটিত হৃদরোগ এর সম্ভাবনা বেশি থাকে। এটা পেটের স্থূলতার সঙ্গে সম্পর্কিত।\n১১,০০০ জনেরর উপর ৮ বছর এরও বেশি সময় যাবৎ পর্যবেক্ষণ করে একটি পরিসংখ্যান থেকে ২০১০ সালে জানা যায় যে,  হৃদরোগে আক্রমণ, স্ট্রোক অথবা মৃত্যু এর আশঙ্কা মাপার জন্য বহুল ব্যাবহৃত পরিমাপক বিএমাই এর তুলনায় কোমর থেকে উচ্চতার অনুপাত উত্তম।</string>
+    <string name="what_is_bmi_details_title">জেনে রাখুনঃ </string>
+    <string name="what_is_bmi_details">বডি ম্যাস ইনডেক্স (বিএমআই) অথবা কুইটিলেট  ইনডেক্স হচ্ছে একজন ব্যাক্তির উচ্চতা ও ওজনের ভাগফল। একজন ব্যাক্তির ওজন কে তাঁর উচ্চতার বর্গ দিয়ে ভাগ করে তাঁর  বিএমআই   নির্ণয় করা হয় এবং বিশ্বজনিন ভাবে প্রকাশিত এর পরিমাপক হচ্ছে কেজি /মিটার২। ওজন কেজি তে এবং উচ্চতা মিটার এ প্রকাশ করা হয়।\nবিএমআই  বলতে একজন ব্যাক্তির শরীরে টিস্যুর ওজন , (পেশী, চর্বি, হাড় ) বুঝানো হয়েছে। এবং এর উপর ভিত্তি করে  নির্ণয় করা হয় একজন ব্যাক্তি কম ওজন, স্বাভাবিক ওজন, অধিক ওজন নাকি মেদবহুল। তবে এখানে বিএমআই  এর শ্রেণীবিন্যাস নিয়ে কিছু বিতর্ক রয়েছে।সাধারণভাবে  গৃহীত এবং বিশ্ব স্বাস্থ্য সংস্থা দ্বারা প্রনোদিত একজন পূর্ণবয়স্ক ব্যাক্তির জন্য ওজন এর শ্রেণিবিন্যাস (গড়):\nকম ওজন: ১৮.৫ এর কম,\nস্বাভাবিক ওজন: ১৮.৫ থেকে ২৪,\nবাড়তি ওজন: ২৫ থেকে ৩০,\nমেদবহুল: ৩০ এর অধিক ।</string>
+
+    <!--Toolbar Title-->
+    <string name="more_info_toolbar">বাড়তি তথ্য</string>
+    <string name="about_us_toolbar">আমাদের সম্পর্কে</string>
+    <string name="bmi_home_toolbar">বিএমাআই</string>
+    <string name="waist_home_toolbar">কোমর পরিমাপ</string>
+    <string name="bmi_toolbar">বিএমাআই কি</string>
+    <string name="waist_toolbar">কোমর পরিমাপ কি</string>
+    <string name="more_apps_toolbar">অন্যান্য অ্যাপস</string>
+    <string name="profile_toolbar">প্রোফাইল</string>
+    <string name="exercise_toolbar">শরীর চর্চা</string>
+    <string name="home_toolbar">হোম</string>
+    <!--Toolbar Title End-->
+
+    <string name="please_wait">অ্যাপের ভার্সন নির্ণয় হচ্ছে…</string>
+    <string name="app_update_title">আমাদের অ্যাপের নতুন ভার্সন এসেছে!</string>
+    <string name="app_update_available">অ্যাপে নতুন সব কিছু পেতে আপডেট করুন ।</string>
+    <string name="update_app">আপডেট করুন</string>
+    <string name="cancel_update">এখন নয়</string>
 
     <!-- AdMob ad unit id -->
     <!--<string name="banner_footer">ca-app-pub-3952381686536210/3209010685</string>-->

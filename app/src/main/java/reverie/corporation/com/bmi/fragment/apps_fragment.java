@@ -1,12 +1,12 @@
 package reverie.corporation.com.bmi.fragment;
 
+import reverie.corporation.com.bmi.FontsOverride;
 import reverie.corporation.com.bmi.MainActivity;
 import reverie.corporation.com.bmi.R;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,9 +15,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 /**
@@ -29,6 +29,7 @@ public class apps_fragment extends Fragment {
     private AdView mAdMobAdView;
     private String YourDeveloperName = "Lab Mimosa";
 
+    Button StartStore;
 
     public static apps_fragment newInstance() {
         apps_fragment fragment = new apps_fragment();
@@ -62,7 +63,7 @@ public class apps_fragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //view initialize and functionality declare
 
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getString(R.string.menu_apps));
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getString(R.string.more_apps_toolbar));
 
         // Initializing Google AdMob
        /* mAdMobAdView = (AdView)view.findViewById(R.id.admob_adview);
@@ -72,7 +73,19 @@ public class apps_fragment extends Fragment {
                 .build();
         mAdMobAdView.loadAd(adRequest);*/
 
+        FontsOverride.setDefaultFont(getActivity(), "MONOSPACE", "android.ttf");
+
+        StartStore = (Button) view.findViewById(R.id.btnStartStore);
+        // Button Action
+        StartStore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showGplayDialogToUser(getActivity());
+            }
+        });
+
         showGplayDialogToUser(getActivity());
+
     }
 
     // Create Dialog popup for Google Play store
@@ -111,7 +124,7 @@ public class apps_fragment extends Fragment {
                 getActivity().startActivity(i);
                 getActivity().finish();*/
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                home_fragment fragment = new home_fragment();
+                home fragment = new home();
                 fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.frame, fragment);
                 fragmentTransaction.commit();

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/view_pager_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/layoutDots"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dots_height"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+        </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="116dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/next"
+        android:textSize="14sp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/shape"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/btn_skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"
+        android:textAllCaps="true"
+        android:textSize="14sp"
+        android:text="@string/skip"
+        android:background="?android:attr/selectableItemBackground"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:textColor="@color/contact_profile_blue" />
+
+    </LinearLayout>
+
+</RelativeLayout>

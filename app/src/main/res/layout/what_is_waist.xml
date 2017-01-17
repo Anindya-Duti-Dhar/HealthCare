@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_page_bg"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/exercise_details_cardview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_margin="5dp"
+                    android:scaleType="centerCrop"
+                    card_view:cardCornerRadius="4dp"
+                    card_view:cardElevation="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/waist_details_animation_layout"
+                            android:layout_width="match_parent"
+                            android:background="@drawable/dark_navheader"
+                            android:layout_margin="5dp"
+                            android:layout_height="210dp">
+
+                            <ImageView
+                                android:id="@+id/waist_details_imageView"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="fitCenter"
+                                android:padding="5dp"
+                                android:src="@drawable/waist_details"
+                                android:adjustViewBounds="true" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="@color/common_action_bar_splitter"/>`
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/waist_details_text_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15sp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginLeft="8dp"
+                                android:textAppearance="@style/WelcomePagesTextFont"
+                                android:textStyle="normal"
+                                android:text="@string/what_is_bmi_details_title"
+                                android:textColor="@color/contact_profile_blue"
+                                />
+
+                            <TextView
+                                android:id="@+id/waist_details_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginRight="8dp"
+                                android:layout_marginBottom="8dp"
+                                android:layout_marginTop="5dp"
+                                android:textStyle="normal"
+                                android:lineSpacingExtra="5dp"
+                                android:textAppearance="@style/WelcomePagesTextFont"
+                                android:text="@string/what_is_waist_details"
+                                android:textColor="#000000"
+                                />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!--  <com.google.android.gms.ads.AdView
+          android:id="@+id/admob_adview"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentBottom="true"
+          android:layout_centerHorizontal="true"
+          ads:adSize="BANNER"
+          ads:adUnitId="@string/banner_footer" />-->
+
+</RelativeLayout>

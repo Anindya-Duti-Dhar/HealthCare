@@ -5,6 +5,7 @@
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@color/status_bar</item>
         <item name="android:popupMenuStyle">@style/PopupMenu</item>
+        <item name="colorControlNormal">@color/white_text_color</item>
     </style>
 
     <style name="PopupMenu" parent="@android:style/Widget.PopupMenu">

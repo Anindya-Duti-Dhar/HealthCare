@@ -7,10 +7,10 @@
     <color name="YoColor">#25a071</color>
     <color name="list_background">#FFFFFF</color>
     <color name="timeline_item_selector">#ccc</color>
-    <color name="colorPrimary">#28b99a</color>
+    <color name="colorPrimary">#26a69a</color>    <!--#28b99a-->
     <color name="colorPrimary2">#3F51B5</color>
-    <color name="colorPrimaryDark">#186f5c</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimaryDark">#1a746b</color>
+    <color name="colorAccent">#7995a4</color>
     <color name="app_black_transparent">#97000000</color>
 
     <color name="textColorPrimary">#FFFFFF</color>
@@ -37,17 +37,17 @@
     <color name="dot_light_screen4">#e4b5fc</color>
 
     <array name="array_dot_active">
-        <item>@color/dot_light_screen1</item>
-        <item>@color/dot_light_screen2</item>
-        <item>@color/dot_light_screen3</item>
-        <item>@color/dot_light_screen4</item>
+        <item>@color/dot_dark_screen2</item>
+        <item>@color/dot_dark_screen2</item>
+        <item>@color/dot_dark_screen2</item>
+        <item>@color/dot_dark_screen2</item>
     </array>
 
     <array name="array_dot_inactive">
-        <item>@color/dot_dark_screen1</item>
-        <item>@color/dot_dark_screen2</item>
-        <item>@color/dot_dark_screen3</item>
-        <item>@color/dot_dark_screen4</item>
+        <item>@color/dot_light_screen3</item>
+        <item>@color/dot_light_screen3</item>
+        <item>@color/dot_light_screen3</item>
+        <item>@color/dot_light_screen3</item>
     </array>
 
     <color name="text">#ff221f1f</color>
@@ -75,7 +75,7 @@
     <color name="color_primary_green_dark">#388e3c</color>
     <color name="ripple_green">#26a69a</color>
     <color name="fab_color_ripple">#7b1fa2</color>
-    <color name="status_bar">#186f5c</color>
+    <color name="status_bar">#1a746b</color>
     <color name="blue">#5B76B3</color>
     <color name="marun">#DC4837</color>
     <color name="magenta_color">#EB54AA</color>
@@ -85,13 +85,49 @@
     <color name="card_bg">#acacac</color>
 
     <color name="pressed_blue">#FF7294DF</color>
-    <color name="pressed_color_for_hot_pink">#fb5bad</color>
-    <color name="hot_pink">#fa148a</color>
+    <color name="pressed_color_for_hot_pink">#80FFFFFF</color>
+    <color name="hot_pink">#80FFFFFF</color>
     <color name="background_light">#75ffffff</color>
     <color name="Lemon">#bce102</color>
 
     <color name="home_border">#c6c5c5</color>
     <color name="home_text">#e5e9ed</color>
 
+
+
+    <color name="tab_color">#22958a</color>   <!--#1a746b#0D9E7D-->
+    <color name="chat_bg">#e7f7fe</color>
+
+    <color name="border_user_image">#376AA1</color>
+    <color name="invite_button">#4bb1e3</color>
+
+    <color name="contact_list_item_number">#737373</color>
+    <color name="contact_list_item_name">#000000</color>
+    <color name="contact_list_bg">#e7f7fe</color>
+    <color name= "chat_list_user">#107db7</color>
+    <color name= "chat_list_chat">#737373</color>
+    <color name= "chat_list_item_divider">#c9c9c9</color>
+
+    <color name= "contact_profile_blue">#107db7</color>
+    <color name= "contact_profile_ash">#7995a4</color>
+    <color name= "contact_profile_darkBlue">#08427a</color>
+
+    <color name="dark_sky_blue">#4bb1e3</color>
+    <color name="purple_add_friend">#9670ae</color>
+    <color name="more_button_bg">#c6aa7b</color>
+    <color name="tab_selector_border">#107db7</color>
+
+    <color name="contact_list_image_bg">#D3E2E9</color>
+    <color name="my_text_message_background">#107db7</color>
+
+    <color name="login_text">#e7f7fe</color>
+
+    <color name="conversation_toolbar_no_image_background">#6e93b3</color>
+    <color name="talk_appbar_topup_bg">#2470a5</color>
+    <color name="sip_call_friend_image_animation">#bce102</color>
+
+    <color name="common_page_bg">#e7f7fe</color>
+    <color name="yellow">#ffc503</color>
+    <color name="soft_red">#ee2c2c</color>
 
 </resources>

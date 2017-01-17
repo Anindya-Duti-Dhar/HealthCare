@@ -1,48 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <!--    <group android:checkableBehavior="single">-->
     <group android:id="@+id/my_id1">
         <item
             android:id="@+id/home"
             android:icon="@drawable/home"
             android:title="@string/menu_home" />
 
-    </group>
-
-    <group android:id="@+id/my_id2">
         <item
-            android:id="@+id/pie_chart"
-            android:icon="@drawable/chart"
-            android:title="@string/menu_pie_chart" />
-    </group>
+            android:id="@+id/profile"
+            android:icon="@drawable/profile"
+            android:title="@string/menu_profile" />
 
-    <group android:id="@+id/my_id3">
         <item
-            android:id="@+id/apps"
-            android:icon="@drawable/ourapps"
-            android:title="@string/menu_apps" />
-    </group>
+            android:id="@+id/what_is_bmi"
+            android:icon="@drawable/bmibue"
+            android:title="@string/menu_bmi" />
 
-    <group android:id="@+id/my_id4">
         <item
-            android:id="@+id/about"
-            android:icon="@drawable/aboutus"
-            android:title="@string/menu_about" />
-    </group>
+            android:id="@+id/what_is_waist"
+            android:icon="@drawable/waistbue"
+            android:title="@string/menu_waist" />
 
-
-    <group android:id="@+id/my_id5">
-        <item
-            android:id="@+id/website"
-            android:icon="@drawable/website"
-            android:title="@string/menu_website" />
     </group>
+    <item android:title="@string/menu_title1">
+        <menu>
+            <group android:id="@+id/my_id2">
+                <item
+                    android:id="@+id/more_apps"
+                    android:icon="@drawable/ourapps"
+                    android:title="@string/menu_apps" />
 
-    <group android:id="@+id/my_id6">
-        <item
-            android:id="@+id/contact"
-            android:icon="@drawable/contactus"
-            android:title="@string/menu_contact" />
-    </group>
+                <item
+                    android:id="@+id/about_us"
+                    android:icon="@drawable/aboutus"
+                    android:title="@string/menu_about" />
+            </group>
+        </menu>
+    </item>
 
 </menu>
