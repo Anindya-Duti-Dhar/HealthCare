@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
@@ -19,10 +20,6 @@ import java.util.ArrayList;
 import reverie.corporation.com.bmi.R;
 import reverie.corporation.com.bmi.exercise.adapter.Exercise1ListAdapter;
 import reverie.corporation.com.bmi.exercise.model.Exercise1ListItem;
-
-/**
- * Created by Administrator on 12/23/2016.
- */
 
 public class ExerciseHome extends Fragment {
 
@@ -58,10 +55,6 @@ public class ExerciseHome extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Fragment screen orientation normal both portait and landscape
-        //getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
     }
 
     @Override
@@ -79,12 +72,10 @@ public class ExerciseHome extends Fragment {
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getString(R.string.exercise_toolbar));
 
         // Initializing Google AdMob
-       /* mAdMobAdView = (AdView)view.findViewById(R.id.admob_adview);
+        mAdMobAdView = (AdView)view.findViewById(R.id.admob_adview);
         AdRequest adRequest = new AdRequest.Builder()
-                *//*.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("1797D2757F5140AA8F98809B458DB26F")// real device id here*//*
                 .build();
-        mAdMobAdView.loadAd(adRequest);*/
+        mAdMobAdView.loadAd(adRequest);
 
         font = Typeface.createFromAsset(getActivity().getAssets(), "android.ttf");
 
@@ -94,24 +85,6 @@ public class ExerciseHome extends Fragment {
 
         mExerciseAdapter = new Exercise1ListAdapter(getActivity(), exerciseListItem);
         mRecyclerView.setAdapter(mExerciseAdapter);
-
-        // Select item on listclick
-  /*      ItemClickSupport.addTo(mRecyclerView).setOnItemClickListener(
-                new ItemClickSupport.OnItemClickListener() {
-                    @Override
-                    public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                        Log.e("search", "here---------------- listener");
-                        Exercise1ListItem data = exerciseListItem.get(position);
-                        mItemName = data.getTitle();
-                        Log.d("ItemMAinName: ", mItemName);
-                        Toast.makeText(getActivity(), "Item Main Name: "+mItemName, Toast.LENGTH_SHORT).show();
-                        //Intent intent = new Intent(getActivity(), Conversation.class);
-                        //intent.putExtra("toolbar_display_name", mDisplayName);
-                        //getActivity().startActivity(intent);
-
-                    }
-                }
-        );*/
 
     }
 

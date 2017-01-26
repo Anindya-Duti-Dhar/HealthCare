@@ -41,11 +41,7 @@
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:color/white">
-
-        <include layout="@layout/content_main" />
-
-        </FrameLayout>
+            android:background="@android:color/white"/>
 
         </RelativeLayout>
 
@@ -62,20 +58,5 @@
         app:itemTextAppearance="@style/NavigationDrawerStyle"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/menu_navigation"/>
-
-   <!-- <android.support.design.widget.NavigationView
-        android:id="@+id/navigation_view"
-        android:layout_height="match_parent"
-        android:layout_width="wrap_content"
-        android:layout_gravity="start"
-        app:itemIconTint="@color/selector"
-        app:itemTextColor="@color/selector"
-        android:clipToPadding="false"
-        android:textAlignment="center"
-        app:itemTextAppearance="@style/NavigationDrawerStyle"
-        app:itemBackground="?attr/selectableItemBackground"
-        app:headerLayout="@layout/header"
-        app:menu="@menu/drawer"
-        />-->
 
 </android.support.v4.widget.DrawerLayout>

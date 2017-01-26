@@ -5,9 +5,7 @@ import android.graphics.Typeface;
 
 import java.lang.reflect.Field;
 
-/**
- * Created by Angry_Birds on 10/14/2016.
- */
+
 public final class FontsOverride {
 
     public static void setDefaultFont(Context context,

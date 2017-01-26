@@ -22,6 +22,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 
@@ -30,15 +31,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import reverie.corporation.com.bmi.FontsOverride;
-import reverie.corporation.com.bmi.MainActivity;
 import reverie.corporation.com.bmi.R;
 import reverie.corporation.com.bmi.utils.BMIPrefManager;
 
 import static java.lang.Double.valueOf;
-
-/**
- * Created by Administrator on 12/27/2016.
- */
 
 public class BmiHome extends Fragment {
 
@@ -112,9 +108,6 @@ public class BmiHome extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Fragment screen orientation normal both portait and landscape
-        //getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
     }
 
     @Override
@@ -129,17 +122,15 @@ public class BmiHome extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //view initialize and functionality declare
 
-        //getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
-
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getString(R.string.bmi_home_toolbar));
 
         // Initializing Google AdMob
-       /* mAdMobAdView = (AdView)view.findViewById(R.id.admob_adview);
+        mAdMobAdView = (AdView)view.findViewById(R.id.admob_adview);
         AdRequest adRequest = new AdRequest.Builder()
-                *//*.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("1797D2757F5140AA8F98809B458DB26F")// real device id here*//*
+                /*.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)*/
+                //.addTestDevice("1797D2757F5140AA8F98809B458DB26F")// real device id here
                 .build();
-        mAdMobAdView.loadAd(adRequest);*/
+        mAdMobAdView.loadAd(adRequest);
 
         font = Typeface.createFromAsset(getActivity().getAssets(), "android.ttf");
 
@@ -192,7 +183,6 @@ public class BmiHome extends Fragment {
         bmi_fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Toast.makeText(getActivity(), "BMI Added", Toast.LENGTH_SHORT).show();
                 // custom dialog
                 getBMI();
                 // hide fab
@@ -207,7 +197,6 @@ public class BmiHome extends Fragment {
         dialog = new Dialog(getActivity());  // always give context of activity.
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        //dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         dialog.setContentView(R.layout.add_bmi_data);
 
         dialog.show();
@@ -382,7 +371,6 @@ public class BmiHome extends Fragment {
 
         // Total calculation method
         SaveData();
-        //Toast.makeText(getApplicationContext(), "Thank You!", Toast.LENGTH_SHORT).show();   // Result or what I want to do onclick function
     }
 
     private void SaveData() {
@@ -654,8 +642,6 @@ public class BmiHome extends Fragment {
             BMIResultStatus.setTypeface(font);
             BMIResultStatus.setTextColor(ContextCompat.getColor(getActivity(), R.color.soft_red));
         }
-
-        //Toast.makeText(getActivity(), "Thank You!" + BMICalculation, Toast.LENGTH_SHORT).show();   // Result or what I want to do onclick function
 
     }
 

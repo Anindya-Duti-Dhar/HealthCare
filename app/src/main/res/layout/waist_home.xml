@@ -509,6 +509,15 @@
 
     </LinearLayout>
 
+      <com.google.android.gms.ads.AdView
+      android:id="@+id/admob_adview"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_centerHorizontal="true"
+      ads:adSize="BANNER"
+      ads:adUnitId="@string/banner_footer" />
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/waist_fab"
         android:layout_width="wrap_content"
@@ -519,15 +528,6 @@
         android:src="@drawable/ic_action_content_add"
         app:backgroundTint="@color/ripple_green"
         app:fabSize="normal"/>
-
-    <!--  <com.google.android.gms.ads.AdView
-      android:id="@+id/admob_adview"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_alignParentBottom="true"
-      android:layout_centerHorizontal="true"
-      ads:adSize="BANNER"
-      ads:adUnitId="@string/banner_footer" />-->
 
 </RelativeLayout>
 

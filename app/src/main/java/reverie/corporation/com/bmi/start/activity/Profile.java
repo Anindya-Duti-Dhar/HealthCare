@@ -9,7 +9,6 @@ import android.os.Handler;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
-import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.WindowManager;
@@ -27,13 +26,8 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 import reverie.corporation.com.bmi.MainActivity;
 import reverie.corporation.com.bmi.R;
 import reverie.corporation.com.bmi.utils.BMIPrefManager;
-import reverie.corporation.com.bmi.utils.CustomRangeInputFilter;
 
 import static java.lang.Double.valueOf;
-
-/**
- * Created by Administrator on 12/28/2016.
- */
 
 public class Profile extends AppCompatActivity {
 

@@ -17,10 +17,6 @@ import reverie.corporation.com.bmi.R;
 import reverie.corporation.com.bmi.exercise.activity.ExerciseDetails;
 import reverie.corporation.com.bmi.exercise.model.Exercise1ListItem;
 
-/**
- * Created by Administrator on 12/23/2016.
- */
-
 // Create the basic adapter extending from RecyclerView.Adapter
 // Note that we specify the custom ViewHolder which gives us access to our views
 public class Exercise1ListAdapter extends RecyclerView.Adapter<Exercise1ListAdapter.ViewHolder> {
@@ -129,7 +125,6 @@ public class Exercise1ListAdapter extends RecyclerView.Adapter<Exercise1ListAdap
             public void onClick(View view) {
                 mItemName = (data.getTitle());
                 mItemHint = (data.getHint());
-                //Toast.makeText(view.getContext(), "Item Card Name: "+mItemName, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(view.getContext(), ExerciseDetails.class);
                 intent.putExtra("toolbar_item_name", mItemName);
                 intent.putExtra("item_hint", mItemHint);

@@ -1,12 +1,21 @@
 package reverie.corporation.com.bmi;
 
 import android.app.AlarmManager;
+import android.app.Dialog;
 import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,23 +27,44 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Calendar;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+import java.util.Calendar;
+import java.util.concurrent.ExecutionException;
+
+import reverie.corporation.com.bmi.bmiCalculation.fragment.WhatIsBmi;
 import reverie.corporation.com.bmi.fragment.EditProfile;
 import reverie.corporation.com.bmi.fragment.about_fragment;
 import reverie.corporation.com.bmi.fragment.apps_fragment;
-import reverie.corporation.com.bmi.fragment.contact_fragment;
 import reverie.corporation.com.bmi.fragment.home;
+import reverie.corporation.com.bmi.utils.MyReceiver;
+import reverie.corporation.com.bmi.waistCalculation.fragment.WhatIsWaist;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "BMI_MAIN_PAGE";
     //Defining Variables
-    private Toolbar toolbar;
+    Toolbar toolbar;
     private DrawerLayout drawerLayout;
 
     final Context mContext = this;
+
+    Typeface font;
+
+    String currentVersion, latestVersion;
+    Dialog dialog;
+
+    String mPlayStoreURL;
+
+    ProgressDialog progressDialog;
+
+    TextView mNavHeaderTitle, mNavHeaderMessage;
 
     private Boolean firstTime = null;
     private AlarmManager alarmManager;
@@ -42,38 +72,53 @@ public class MainActivity extends AppCompatActivity {
     private Intent alarmIntent;
     private Calendar alarmStartTime;
 
-    Typeface font;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // create our manager instance after the content view is set
+        SystemBarTintManager tintManager = new SystemBarTintManager(this);
+        // enable status bar tint
+        tintManager.setStatusBarTintEnabled(true);
+        // enable navigation bar tint
+        tintManager.setNavigationBarTintEnabled(true);
+        // set a custom tint color for all system bars
+        tintManager.setTintColor(Color.parseColor("#1a746b"));
+
         // Initializing Toolbar and setting it as the actionbar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        MainActivity.this.getSupportActionBar().setTitle(getString(R.string.bmi_home_toolbar));
+
+        FontsOverride.setDefaultFont(MainActivity.this, "MONOSPACE", "android.ttf");
+
+        font = Typeface.createFromAsset(getAssets(), "android.ttf");
+
+        mPlayStoreURL = "https://play.google.com/store/apps/details?id=reverie.corporation.com.bmi";
+
+        progressDialog = new ProgressDialog(MainActivity.this);
+
+        // Initializing Internet Check
+        if (hasConnection(MainActivity.this)){
+            // Check App Version
+            CheckAppUpdateVersion();
+        }
+
+        else {
+            // nothing to do
+        }
+
+        isFirstTime();
+
+        initNavigationDrawer();
 
         android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         home fragment = new home();
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.frame, fragment);
         fragmentTransaction.commit();
-
-        //isFirstTime();
-
-        // Initializing Google AdMob
-       /* mAdMobAdView = (AdView)findViewById(R.id.admob_adview);
-        AdRequest adRequest = new AdRequest.Builder()
-                   *//* .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                    .addTestDevice("1797D2757F5140AA8F98809B458DB26F")// real device id here*//*
-                .build();
-        mAdMobAdView.loadAd(adRequest);*/
-
-        FontsOverride.setDefaultFont(this, "MONOSPACE", "android.ttf");
-
-        font = Typeface.createFromAsset(getAssets(), "android.ttf");
-
-        initNavigationDrawer();
 
     }
 
@@ -101,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
                     //Replacing the main content with bmi
                     case R.id.what_is_bmi:
-                        contact_fragment fragment1 = new contact_fragment();
+                        WhatIsBmi fragment1 = new WhatIsBmi();
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.frame, fragment1);
                         fragmentTransaction.commit();
@@ -110,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
 
                     //Replacing the main content with waist
                     case R.id.what_is_waist:
-                        about_fragment fragment2 = new about_fragment();
+                        WhatIsWaist fragment2 = new WhatIsWaist();
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.frame, fragment2);
                         fragmentTransaction.commit();
@@ -155,6 +200,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         View header = navigationView.getHeaderView(0);
+        mNavHeaderMessage = (TextView)header.findViewById(R.id.nav_header_message);
+        mNavHeaderMessage.setText(getString(R.string.nav_header_Message));
+        mNavHeaderMessage.setTypeface(font);
+        mNavHeaderTitle = (TextView)header.findViewById(R.id.nav_header_title);
+        mNavHeaderTitle.setText(getString(R.string.nav_header_title));
+        mNavHeaderTitle.setTypeface(font);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
 
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close) {
@@ -171,47 +222,6 @@ public class MainActivity extends AppCompatActivity {
         };
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
-    }
-
-    private boolean isFirstTime() {
-        if (firstTime == null) {
-            SharedPreferences mPreferences = this.getSharedPreferences("first_time", Context.MODE_PRIVATE);
-            firstTime = mPreferences.getBoolean("firstTime", true);
-            if (firstTime) {
-                SharedPreferences.Editor editor = mPreferences.edit();
-                editor.putBoolean("firstTime", false);
-                editor.commit();
-                setNotification();
-            }
-        }
-        return firstTime;
-    }
-
-
-
-    public void setNotification() {
-        alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        alarmIntent = new Intent(MainActivity.this, MyReceiver.class);
-        pendingIntent = PendingIntent.getBroadcast(  MainActivity.this, 0, alarmIntent, 0);
-
-        alarmStartTime = Calendar.getInstance();
-        alarmStartTime.set(Calendar.HOUR_OF_DAY, 21);
-        alarmStartTime.set(Calendar.MINUTE, 0);
-        alarmStartTime.set(Calendar.SECOND, 0);
-        alarmManager.setRepeating(AlarmManager.RTC, alarmStartTime.getTimeInMillis(), getInterval(), pendingIntent);
-
-        Log.d("Alarm Set: ", "Start");
-        Toast.makeText(getApplicationContext(), "Alarm Set", Toast.LENGTH_SHORT).show();
-    }
-
-    private int getInterval() {
-        int days = 7;
-        int hours = 24;
-        int minutes = 60;
-        int seconds = 60;
-        int milliseconds = 1000;
-        int repeatMS = days * hours * minutes * seconds * milliseconds;
-        return repeatMS;
     }
 
     @Override
@@ -259,5 +269,160 @@ public class MainActivity extends AppCompatActivity {
         alert.show();
     }
 
+    // Internet check method
+    public boolean hasConnection(Context context){
+        ConnectivityManager cm=(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo wifiNetwork=cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        if (wifiNetwork != null && wifiNetwork.isConnected()){
+            return true;
+        }
+        NetworkInfo mobileNetwork=cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+        if (mobileNetwork != null && mobileNetwork.isConnected()){
+            return true;
+        }
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        if (activeNetwork != null && activeNetwork.isConnected()){
+            return true;
+        }
+        return false;
+    }
+
+    private String getCurrentVersion(){
+        PackageManager pm = this.getPackageManager();
+        PackageInfo pInfo = null;
+
+        try {
+            pInfo =  pm.getPackageInfo(this.getPackageName(),0);
+
+        } catch (PackageManager.NameNotFoundException e1) {
+            e1.printStackTrace();
+        }
+        String currentVersion = pInfo.versionName;
+
+        return currentVersion;
+    }
+
+    private class GetLatestVersion extends AsyncTask<String, String, String> {
+        String latestVersion;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog.setMessage(getString(R.string.please_wait));
+            progressDialog.setCancelable(false);
+            progressDialog.setCanceledOnTouchOutside(false);
+            progressDialog.show();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                //It retrieves the latest version by scraping the content of current version from play store at runtime
+                String urlOfAppFromPlayStore = mPlayStoreURL;
+                Document  doc = Jsoup.connect(urlOfAppFromPlayStore).get();
+                latestVersion = doc.getElementsByAttributeValue("itemprop","softwareVersion").first().text();
+
+            }catch (Exception e){
+                e.printStackTrace();
+
+            }
+
+            return latestVersion;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            progressDialog.hide();
+        }
+    }
+
+    private void CheckAppUpdateVersion() {
+        String latestVersion = "";
+        String currentVersion = getCurrentVersion();
+        try {
+            latestVersion = new GetLatestVersion().execute().get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        //If the versions are not the same
+        if(!currentVersion.equals(latestVersion)){
+            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setCancelable(false);
+            builder.setTitle(getString(R.string.app_update_title));
+            builder.setMessage(getString(R.string.app_update_available));
+
+            //final AlertDialog ad = builder.show();
+
+            builder.setPositiveButton(getString(R.string.update_app), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    //Click button action
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=reverie.corporation.com.bmi")));
+                    dialog.dismiss();
+                }
+            });
+
+            builder.setNegativeButton(getString(R.string.cancel_update), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    //Cancel button action
+                    dialog.dismiss();
+                }
+            });
+
+            builder.setCancelable(false);
+            builder.show();
+        }
+
+        else {
+            // nothing to do
+        }
+    }
+
+    private boolean isFirstTime() {
+        if (firstTime == null) {
+            SharedPreferences mPreferences = this.getSharedPreferences("first_time", Context.MODE_PRIVATE);
+            firstTime = mPreferences.getBoolean("firstTime", true);
+            if (firstTime) {
+                SharedPreferences.Editor editor = mPreferences.edit();
+                editor.putBoolean("firstTime", false);
+                editor.commit();
+                setNotification();
+            }
+        }
+        return firstTime;
+    }
+
+    public void setNotification() {
+
+        alarmStartTime = Calendar.getInstance();
+        alarmStartTime.set(Calendar.HOUR_OF_DAY, 21);
+        alarmStartTime.set(Calendar.MINUTE, 0);
+        alarmStartTime.set(Calendar.SECOND, 0);
+        alarmStartTime.set(Calendar.AM_PM,Calendar.PM);
+
+        alarmIntent = new Intent(MainActivity.this, MyReceiver.class);
+        pendingIntent = PendingIntent.getBroadcast(  MainActivity.this, 0, alarmIntent, 0);
+
+        alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC, alarmStartTime.getTimeInMillis(), getInterval(), pendingIntent);
+
+        Log.d("Start Alram", "Yes");
+        Toast.makeText(getApplicationContext(), getString(R.string.notification_start), Toast.LENGTH_SHORT).show();
+    }
+
+    private int getInterval() {
+        int days = 1;
+        int hours = 24;
+        int minutes = 60;
+        int seconds = 60;
+        int milliseconds = 1000;
+        int repeatMS = 1*(days * hours * minutes * seconds * milliseconds);
+        return repeatMS;
+    }
 
 }

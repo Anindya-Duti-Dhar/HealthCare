@@ -1,10 +1,13 @@
 package reverie.corporation.com.bmi;
 
+import android.app.AlarmManager;
 import android.app.Dialog;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -21,6 +24,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -31,6 +35,7 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
+import java.util.Calendar;
 import java.util.concurrent.ExecutionException;
 
 import reverie.corporation.com.bmi.bmiCalculation.fragment.WhatIsBmi;
@@ -38,12 +43,12 @@ import reverie.corporation.com.bmi.fragment.EditProfile;
 import reverie.corporation.com.bmi.fragment.about_fragment;
 import reverie.corporation.com.bmi.fragment.apps_fragment;
 import reverie.corporation.com.bmi.fragment.home;
+import reverie.corporation.com.bmi.utils.MyReceiver;
 import reverie.corporation.com.bmi.waistCalculation.fragment.WhatIsWaist;
-
-import static com.github.mikephil.charting.charts.Chart.LOG_TAG;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "BMI_MAIN_PAGE";
     //Defining Variables
     Toolbar toolbar;
     private DrawerLayout drawerLayout;
@@ -60,6 +65,12 @@ public class MainActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
 
     TextView mNavHeaderTitle, mNavHeaderMessage;
+
+    private Boolean firstTime = null;
+    private AlarmManager alarmManager;
+    private PendingIntent pendingIntent;
+    private Intent alarmIntent;
+    private Calendar alarmStartTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,27 +92,26 @@ public class MainActivity extends AppCompatActivity {
 
         MainActivity.this.getSupportActionBar().setTitle(getString(R.string.bmi_home_toolbar));
 
-        // Initializing Google AdMob
-       /* mAdMobAdView = (AdView)findViewById(R.id.admob_adview);
-        AdRequest adRequest = new AdRequest.Builder()
-                   *//* .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                    .addTestDevice("1797D2757F5140AA8F98809B458DB26F")// real device id here*//*
-                .build();
-        mAdMobAdView.loadAd(adRequest);*/
-
         FontsOverride.setDefaultFont(MainActivity.this, "MONOSPACE", "android.ttf");
 
         font = Typeface.createFromAsset(getAssets(), "android.ttf");
 
-        mPlayStoreURL = "";
+        mPlayStoreURL = "https://play.google.com/store/apps/details?id=reverie.corporation.com.bmi";
 
         progressDialog = new ProgressDialog(MainActivity.this);
 
         // Initializing Internet Check
         if (hasConnection(MainActivity.this)){
             // Check App Version
-            //CheckAppUpdateVersion();
+            CheckAppUpdateVersion();
         }
+
+        else {
+            // nothing to do
+        }
+
+        // set notification
+        setNotification();
 
         initNavigationDrawer();
 
@@ -309,7 +319,7 @@ public class MainActivity extends AppCompatActivity {
         protected String doInBackground(String... params) {
             try {
                 //It retrieves the latest version by scraping the content of current version from play store at runtime
-                String urlOfAppFromPlayStore = mPlayStoreURL;   // mPlayStoreURL = "https://play.google.com/store/apps/details?id= your app package address";
+                String urlOfAppFromPlayStore = mPlayStoreURL;
                 Document  doc = Jsoup.connect(urlOfAppFromPlayStore).get();
                 latestVersion = doc.getElementsByAttributeValue("itemprop","softwareVersion").first().text();
 
@@ -331,10 +341,8 @@ public class MainActivity extends AppCompatActivity {
     private void CheckAppUpdateVersion() {
         String latestVersion = "";
         String currentVersion = getCurrentVersion();
-        //Log.d(LOG_TAG, "Current version = " + currentVersion);
         try {
             latestVersion = new GetLatestVersion().execute().get();
-            //Log.d(LOG_TAG, "Latest version = " + latestVersion);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -354,7 +362,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     //Click button action
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=your app package address")));
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=reverie.corporation.com.bmi")));
                     dialog.dismiss();
                 }
             });
@@ -370,6 +378,34 @@ public class MainActivity extends AppCompatActivity {
             builder.setCancelable(false);
             builder.show();
         }
+
+        else {
+            // nothing to do
+        }
+    }
+
+    public void setNotification() {
+        alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        alarmIntent = new Intent("android.media.action.DISPLAY_NOTIFICATION");
+        alarmIntent.addCategory("android.intent.category.DEFAULT");
+        pendingIntent = PendingIntent.getBroadcast(this, 100, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        alarmStartTime = Calendar.getInstance();
+        alarmStartTime.set(Calendar.HOUR_OF_DAY, 21);
+        alarmStartTime.set(Calendar.MINUTE, 0);
+        alarmStartTime.set(Calendar.SECOND, 0);
+        alarmStartTime.set(Calendar.AM_PM,Calendar.PM);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, alarmStartTime.getTimeInMillis(), getInterval(), pendingIntent);
+    }
+
+    private int getInterval() {
+        int days = 1;
+        int hours = 24;
+        int minutes = 60;
+        int seconds = 60;
+        int milliseconds = 1000;
+        int repeatMS = 15*(days * hours * minutes * seconds * milliseconds);
+        return repeatMS;
     }
 
 }

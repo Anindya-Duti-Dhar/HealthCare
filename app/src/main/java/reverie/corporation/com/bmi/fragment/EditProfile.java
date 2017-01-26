@@ -1,19 +1,12 @@
 package reverie.corporation.com.bmi.fragment;
 
-import android.content.ActivityNotFoundException;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
-import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,27 +15,20 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.ads.AdView;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 
-import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
-import reverie.corporation.com.bmi.MainActivity;
 import reverie.corporation.com.bmi.R;
-import reverie.corporation.com.bmi.start.activity.Profile;
 import reverie.corporation.com.bmi.utils.BMIPrefManager;
-import reverie.corporation.com.bmi.utils.CustomRangeInputFilter;
 
 import static java.lang.Double.valueOf;
 
-/**
- * Created by Administrator on 1/6/2017.
- */
+
 
 public class EditProfile extends Fragment {
 

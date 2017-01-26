@@ -16,9 +16,6 @@ public class splash extends AppCompatActivity {
     private static int SPLASH_TIME_OUT = 1500;
     private Context mContext;
 
-    //TextView txtAppTitle;
-    //Typeface font;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub

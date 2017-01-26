@@ -6,9 +6,7 @@ import android.content.res.Configuration;
 
 import java.util.Locale;
 
-/**
- * Created by Administrator on 1/5/2017.
- */
+
 
 public class Langauge extends Application {
 

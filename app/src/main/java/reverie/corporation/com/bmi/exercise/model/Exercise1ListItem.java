@@ -1,11 +1,5 @@
 package reverie.corporation.com.bmi.exercise.model;
 
-import android.graphics.drawable.Drawable;
-
-/**
- * Created by Administrator on 12/22/2016.
- */
-
 public class Exercise1ListItem {
 
     public String getTitle() {

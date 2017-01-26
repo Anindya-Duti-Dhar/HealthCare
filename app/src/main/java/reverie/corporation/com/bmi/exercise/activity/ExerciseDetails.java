@@ -23,9 +23,7 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import reverie.corporation.com.bmi.R;
 
-/**
- * Created by Administrator on 12/26/2016.
- */
+import com.google.android.gms.ads.AdRequest;
 
 public class ExerciseDetails extends AppCompatActivity {
 
@@ -53,8 +51,7 @@ public class ExerciseDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // animation for activity entry
-        //this.overridePendingTransition(R.anim.animation_enter, R.anim.animation_exit);
+
         setContentView(R.layout.exercise_details);
 
         // create our manager instance after the content view is set
@@ -85,12 +82,10 @@ public class ExerciseDetails extends AppCompatActivity {
         mExercise_details_TootBar_Text.setText(mToolbarItemTitle);
         mExercise_details_TootBar_Text.setTypeface(font);
         // Initializing Google AdMob
-       /* mAdMobAdView = (AdView)view.findViewById(R.id.admob_adview);
+        mAdMobAdView = (AdView) findViewById(R.id.admob_adview);
         AdRequest adRequest = new AdRequest.Builder()
-                *//*.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("1797D2757F5140AA8F98809B458DB26F")// real device id here*//*
                 .build();
-        mAdMobAdView.loadAd(adRequest);*/
+        mAdMobAdView.loadAd(adRequest);
 
         mExerciseDetailsText = (TextView) findViewById(R.id.exercise_details_text);
         mExerciseDetailsImage = (ImageView) findViewById(R.id.exercise_details_imageView);
@@ -106,7 +101,6 @@ public class ExerciseDetails extends AppCompatActivity {
         mExerciseFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Toast.makeText(getActivity(), "BMI Added", Toast.LENGTH_SHORT).show();
                 // custom dialog
                 PlayExerciseDialog();
                 // hide fab
@@ -267,8 +261,6 @@ public class ExerciseDetails extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        // animation for activity exit
-        //overridePendingTransition(R.anim.animation_exit, R.anim.animation_enter);
     }
 
 }

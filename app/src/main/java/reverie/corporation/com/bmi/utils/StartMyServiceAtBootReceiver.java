@@ -1,4 +1,4 @@
-package reverie.corporation.com.bmi;
+package reverie.corporation.com.bmi.utils;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -9,7 +9,7 @@ public class StartMyServiceAtBootReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if ("android.intent.action.BOOT_COMPLETED".equals(intent.getAction())) {
-            Intent serviceIntent = new Intent(context, MyAlarmService.class);
+            Intent serviceIntent = new Intent("reverie.corporation.com.bmi.utils.MyReceiver");
             context.startService(serviceIntent);
         }
     }

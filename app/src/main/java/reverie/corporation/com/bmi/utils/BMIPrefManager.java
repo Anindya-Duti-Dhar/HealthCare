@@ -4,9 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-/**
- * Created by ratnesh on 19-10-2016.
- */
 
 public class BMIPrefManager {
     SharedPreferences pref;
@@ -66,31 +63,6 @@ public class BMIPrefManager {
     // Profile information
     private static final String PREFERENCE_FEET = "feet";
     private static final String APPLICATION_FEET = "ap_feet";
-
-    private static final String PREFERENCE_INCH = "inch";
-    private static final String APPLICATION_INCH = "ap_inch";
-
-    private static final String PREFERENCE_KG = "kg";
-    private static final String APPLICATION_KG = "ap_kg";
-
-    private static final String PREFERENCE_GM = "waist_gm";
-    private static final String APPLICATION_GM = "ap_gm";
-
-    private static final String PREFERENCE_CM = "cm";
-    private static final String APPLICATION_CM = "ap_cm";
-
-    private static final String PREFERENCE_INCH_CM = "inch_cm";
-    private static final String APPLICATION_INCH_CM = "ap_inch_cm";
-
-    // spinner data
-    private static final String PREFERENCE_HEIGHT_SPINNER = "height_spinner";
-    private static final String APPLICATION_HEIGHT_SPINNER = "ap_height_spinner";
-
-    private static final String PREFERENCE_WEIGHT_SPINNER = "inch_weight_spinner";
-    private static final String APPLICATION_WEIGHT_SPINNER = "ap_weight_spinner";
-
-    private static final String PREFERENCE_WAIST_SPINNER = "waist_spinner";
-    private static final String APPLICATION_WAIST_SPINNER = "ap_waist_spinner";
 
     public BMIPrefManager(Context context) {
         this.mContext = context;
@@ -303,117 +275,5 @@ public class BMIPrefManager {
         return ctx.getSharedPreferences(
                 BMIPrefManager.PREFERENCE_FEET, Context.MODE_PRIVATE)
                 .getString(BMIPrefManager.APPLICATION_FEET, "");
-    }
-
-    public static void setInch(final Context ctx, final String user) {
-        final SharedPreferences prefs = ctx.getSharedPreferences(
-                BMIPrefManager.PREFERENCE_INCH, Context.MODE_PRIVATE);
-        final Editor editor = prefs.edit();
-        editor.putString(BMIPrefManager.APPLICATION_INCH, user);
-        editor.commit();
-    }
-
-    public static String getInch(final Context ctx) {
-        return ctx.getSharedPreferences(
-                BMIPrefManager.PREFERENCE_INCH, Context.MODE_PRIVATE)
-                .getString(BMIPrefManager.APPLICATION_INCH, "");
-    }
-
-    public static void setKG(final Context ctx, final String user) {
-        final SharedPreferences prefs = ctx.getSharedPreferences(
-                BMIPrefManager.PREFERENCE_KG, Context.MODE_PRIVATE);
-        final Editor editor = prefs.edit();
-        editor.putString(BMIPrefManager.APPLICATION_KG, user);
-        editor.commit();
-    }
-
-    public static String getKG(final Context ctx) {
-        return ctx.getSharedPreferences(
-                BMIPrefManager.PREFERENCE_KG, Context.MODE_PRIVATE)
-                .getString(BMIPrefManager.APPLICATION_KG, "");
-    }
-
-    public static void setGM(final Context ctx, final String user) {
-        final SharedPreferences prefs = ctx.getSharedPreferences(
-                BMIPrefManager.PREFERENCE_GM, Context.MODE_PRIVATE);
-        final Editor editor = prefs.edit();
-        editor.putString(BMIPrefManager.APPLICATION_GM, user);
-        editor.commit();
-    }
-
-    public static String getGM(final Context ctx) {
-        return ctx.getSharedPreferences(
-                BMIPrefManager.PREFERENCE_GM, Context.MODE_PRIVATE)
-                .getString(BMIPrefManager.APPLICATION_GM, "");
-    }
-
-    public static void setCM(final Context ctx, final String user) {
-        final SharedPreferences prefs = ctx.getSharedPreferences(
-                BMIPrefManager.PREFERENCE_CM, Context.MODE_PRIVATE);
-        final Editor editor = prefs.edit();
-        editor.putString(BMIPrefManager.APPLICATION_CM, user);
-        editor.commit();
-    }
-
-    public static String getCM(final Context ctx) {
-        return ctx.getSharedPreferences(
-                BMIPrefManager.PREFERENCE_CM, Context.MODE_PRIVATE)
-                .getString(BMIPrefManager.APPLICATION_CM, "");
-    }
-
-    public static void setInchCM(final Context ctx, final String user) {
-        final SharedPreferences prefs = ctx.getSharedPreferences(
-                BMIPrefManager.PREFERENCE_INCH_CM, Context.MODE_PRIVATE);
-        final Editor editor = prefs.edit();
-        editor.putString(BMIPrefManager.APPLICATION_INCH_CM, user);
-        editor.commit();
-    }
-
-    public static String getInchCM(final Context ctx) {
-        return ctx.getSharedPreferences(
-                BMIPrefManager.PREFERENCE_INCH_CM, Context.MODE_PRIVATE)
-                .getString(BMIPrefManager.APPLICATION_INCH_CM, "");
-    }
-
-    public static void setHeightSpinner(final Context ctx, final String user) {
-        final SharedPreferences prefs = ctx.getSharedPreferences(
-                BMIPrefManager.PREFERENCE_HEIGHT_SPINNER, Context.MODE_PRIVATE);
-        final Editor editor = prefs.edit();
-        editor.putString(BMIPrefManager.APPLICATION_HEIGHT_SPINNER, user);
-        editor.commit();
-    }
-
-    public static String getHeightSpinner(final Context ctx) {
-        return ctx.getSharedPreferences(
-                BMIPrefManager.PREFERENCE_HEIGHT_SPINNER, Context.MODE_PRIVATE)
-                .getString(BMIPrefManager.APPLICATION_HEIGHT_SPINNER, "");
-    }
-
-    public static void setWeightSpinner(final Context ctx, final String user) {
-        final SharedPreferences prefs = ctx.getSharedPreferences(
-                BMIPrefManager.PREFERENCE_WEIGHT_SPINNER, Context.MODE_PRIVATE);
-        final Editor editor = prefs.edit();
-        editor.putString(BMIPrefManager.APPLICATION_WEIGHT_SPINNER, user);
-        editor.commit();
-    }
-
-    public static String getWeightSpinner(final Context ctx) {
-        return ctx.getSharedPreferences(
-                BMIPrefManager.PREFERENCE_WEIGHT_SPINNER, Context.MODE_PRIVATE)
-                .getString(BMIPrefManager.APPLICATION_WEIGHT_SPINNER, "");
-    }
-
-    public static void setWaistSpinner(final Context ctx, final String user) {
-        final SharedPreferences prefs = ctx.getSharedPreferences(
-                BMIPrefManager.PREFERENCE_WAIST_SPINNER, Context.MODE_PRIVATE);
-        final Editor editor = prefs.edit();
-        editor.putString(BMIPrefManager.APPLICATION_WAIST_SPINNER, user);
-        editor.commit();
-    }
-
-    public static String getWaistSpinner(final Context ctx) {
-        return ctx.getSharedPreferences(
-                BMIPrefManager.PREFERENCE_WAIST_SPINNER, Context.MODE_PRIVATE)
-                .getString(BMIPrefManager.APPLICATION_WAIST_SPINNER, "");
     }
 }

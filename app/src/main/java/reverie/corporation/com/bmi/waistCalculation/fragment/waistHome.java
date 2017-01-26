@@ -21,6 +21,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 
@@ -31,10 +32,6 @@ import java.util.Date;
 import reverie.corporation.com.bmi.FontsOverride;
 import reverie.corporation.com.bmi.R;
 import reverie.corporation.com.bmi.utils.BMIPrefManager;
-
-/**
- * Created by Administrator on 12/29/2016.
- */
 
 public class WaistHome extends Fragment {
 
@@ -105,10 +102,6 @@ public class WaistHome extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Fragment screen orientation normal both portait and landscape
-        //getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
     }
 
     @Override
@@ -128,12 +121,10 @@ public class WaistHome extends Fragment {
         FontsOverride.setDefaultFont(getActivity(), "MONOSPACE", "android.ttf");
 
         // Initializing Google AdMob
-       /* mAdMobAdView = (AdView)view.findViewById(R.id.admob_adview);
+        mAdMobAdView = (AdView)view.findViewById(R.id.admob_adview);
         AdRequest adRequest = new AdRequest.Builder()
-                *//*.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("1797D2757F5140AA8F98809B458DB26F")// real device id here*//*
                 .build();
-        mAdMobAdView.loadAd(adRequest);*/
+        mAdMobAdView.loadAd(adRequest);
 
         font = Typeface.createFromAsset(getActivity().getAssets(), "android.ttf");
 
@@ -156,7 +147,6 @@ public class WaistHome extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Toast.makeText(getActivity(), "BMI Added", Toast.LENGTH_SHORT).show();
                 // custom dialog
                 getWaist();
                 // hide fab
@@ -171,7 +161,6 @@ public class WaistHome extends Fragment {
         dialog = new Dialog(getActivity());  // always give context of activity.
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        //dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         dialog.setContentView(R.layout.add_waist_data);
 
         dialog.show();
@@ -336,7 +325,6 @@ public class WaistHome extends Fragment {
 
         // Total calculation method
         SaveData();
-        //Toast.makeText(getApplicationContext(), "Thank You!", Toast.LENGTH_SHORT).show();   // Result or what I want to do onclick function
     }
 
     private void SaveData() {

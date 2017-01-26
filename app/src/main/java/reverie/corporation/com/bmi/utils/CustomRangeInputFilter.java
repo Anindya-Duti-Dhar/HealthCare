@@ -1,8 +1,5 @@
 package reverie.corporation.com.bmi.utils;
 
-/**
- * Created by Administrator on 1/17/2017.
- */
 
 import android.text.InputFilter;
 import android.text.Spanned;

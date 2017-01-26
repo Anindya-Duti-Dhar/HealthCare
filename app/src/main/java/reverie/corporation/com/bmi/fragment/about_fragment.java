@@ -27,9 +27,6 @@ import com.google.android.gms.ads.AdView;
 
 import java.util.List;
 
-/**
- * Created by Angry_Birds on 10/14/2016.
- */
 public class about_fragment extends Fragment {
 
     //Defining Variables
@@ -56,10 +53,6 @@ public class about_fragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Fragment screen orientation normal both portait and landscape
-        //getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
     }
 
     @Override
@@ -77,12 +70,10 @@ public class about_fragment extends Fragment {
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getString(R.string.about_us_toolbar));
 
         // Initializing Google AdMob
-       /* mAdMobAdView = (AdView)view.findViewById(R.id.admob_adview);
+        mAdMobAdView = (AdView)view.findViewById(R.id.admob_adview);
         AdRequest adRequest = new AdRequest.Builder()
-                *//*.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("1797D2757F5140AA8F98809B458DB26F")// real device id here*//*
                 .build();
-        mAdMobAdView.loadAd(adRequest);*/
+        mAdMobAdView.loadAd(adRequest);
 
         FontsOverride.setDefaultFont(getActivity(), "MONOSPACE", "android.ttf");
 
@@ -105,7 +96,6 @@ public class about_fragment extends Fragment {
         about_fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Toast.makeText(getActivity(), "BMI Added", Toast.LENGTH_SHORT).show();
                 // custom dialog
                 getContactDialog();
                 // hide fab
@@ -121,7 +111,6 @@ public class about_fragment extends Fragment {
         dialog = new Dialog(getActivity());  // always give context of activity.
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        //dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         dialog.setContentView(R.layout.contact_dialog);
 
         dialog.show();
@@ -221,7 +210,7 @@ public class about_fragment extends Fragment {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setClassName("com.twitter.android", "com.twitter.android.ProfileActivity");
                     // Don't forget to put the "L" at the end of the id.
-                    intent.putExtra("user_id", 493896474);
+                    intent.putExtra("user_id", 493896474L);
                     startActivity(intent);
                 }
                 catch (PackageManager.NameNotFoundException e)

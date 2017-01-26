@@ -8,16 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import reverie.corporation.com.bmi.FontsOverride;
-import reverie.corporation.com.bmi.MainActivity;
 import reverie.corporation.com.bmi.R;
-import reverie.corporation.com.bmi.bmiCalculation.fragment.WhatIsBmi;
-
-/**
- * Created by Administrator on 1/11/2017.
- */
 
 public class WhatIsWaist extends Fragment {
 
@@ -40,9 +35,6 @@ public class WhatIsWaist extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Fragment screen orientation normal both portait and landscape
-        //getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
     }
 
     @Override
@@ -62,12 +54,10 @@ public class WhatIsWaist extends Fragment {
         FontsOverride.setDefaultFont(getActivity(), "MONOSPACE", "android.ttf");
 
         // Initializing Google AdMob
-       /* mAdMobAdView = (AdView)view.findViewById(R.id.admob_adview);
+        mAdMobAdView = (AdView)view.findViewById(R.id.admob_adview);
         AdRequest adRequest = new AdRequest.Builder()
-                *//*.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("1797D2757F5140AA8F98809B458DB26F")// real device id here*//*
                 .build();
-        mAdMobAdView.loadAd(adRequest);*/
+        mAdMobAdView.loadAd(adRequest);
 
 
         font = Typeface.createFromAsset(getActivity().getAssets(), "android.ttf");

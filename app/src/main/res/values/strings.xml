@@ -43,7 +43,7 @@
     <string name="menu_title1">বাড়তি তথ্য</string>
     <string name="menu_title2">আমাদের সম্পর্কে</string>
     <string name="menu_about">আমাদের সম্পর্কে</string>
-    <string name="menu_bmi">বিএমাই কি</string>
+    <string name="menu_bmi">বিএমআই কি</string>
     <string name="menu_waist">কোমর পরিমাপ কি</string>
     <string name="menu_apps">অন্যান্য অ্যাপস</string>
     <string name="menu_profile">প্রোফাইল</string>
@@ -191,7 +191,7 @@
     <string name="profile_button">প্রবেশ করুন</string>
 
     <string name="welcome_one_title">বিএমআই নির্ণয়</string>
-    <string name="welcome_one_message">বিএমআই আর আদর্শ ওজন অনুসারে জেনে নিন আপনার স্বাস্থ্যাবস্থা</string>
+    <string name="welcome_one_message">বিএমআই আদর্শ ওজন অনুসারে জেনে নিন আপনার স্বাস্থ্যাবস্থা</string>
     <string name="welcome_two_title">কোমরের মেদ নির্ণয়</string>
     <string name="welcome_two_message">কোমর ও উচ্চতার অনুপাত অনুসারে জেনে নিন আপনি কেমন স্বাস্থ্যের অধিকারী</string>
     <string name="welcome_three_title">ঘরোয়া শরীর চর্চা</string>
@@ -207,9 +207,9 @@
     <!--Toolbar Title-->
     <string name="more_info_toolbar">বাড়তি তথ্য</string>
     <string name="about_us_toolbar">আমাদের সম্পর্কে</string>
-    <string name="bmi_home_toolbar">বিএমাআই</string>
+    <string name="bmi_home_toolbar">বিএমআই</string>
     <string name="waist_home_toolbar">কোমর পরিমাপ</string>
-    <string name="bmi_toolbar">বিএমাআই কি</string>
+    <string name="bmi_toolbar">বিএমআই কি</string>
     <string name="waist_toolbar">কোমর পরিমাপ কি</string>
     <string name="more_apps_toolbar">অন্যান্য অ্যাপস</string>
     <string name="profile_toolbar">প্রোফাইল</string>
@@ -223,6 +223,10 @@
     <string name="update_app">আপডেট করুন</string>
     <string name="cancel_update">এখন নয়</string>
 
+    <string name="notification_message">আপনার ওজনের খোঁজ রাখুন</string>
+    <string name="notification_start">সাপ্তাহিক নটিফিকেশান চালু হয়েছে</string>
+    <string name="notification_sticker">সুখী নটিফিকেশান!</string>
+
     <!-- AdMob ad unit id -->
-    <!--<string name="banner_footer">ca-app-pub-3952381686536210/3209010685</string>-->
+    <string name="banner_footer">ca-app-pub-2564867463756069/8435537232</string>    <!--ca-app-pub-2616247313756753/9398449827-->
 </resources>

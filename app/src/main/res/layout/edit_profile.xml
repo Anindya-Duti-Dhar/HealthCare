@@ -365,14 +365,4 @@
 
     </android.support.v7.widget.CardView>
 
-
-    <!--  <com.google.android.gms.ads.AdView
-      android:id="@+id/admob_adview"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_alignParentBottom="true"
-      android:layout_centerHorizontal="true"
-      ads:adSize="BANNER"
-      ads:adUnitId="@string/banner_footer" />-->
-
 </RelativeLayout>

@@ -3,7 +3,6 @@ package reverie.corporation.com.bmi.fragment;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -19,20 +18,15 @@ import android.widget.TextView;
 import com.google.android.gms.ads.AdView;
 
 import reverie.corporation.com.bmi.Langauge;
-import reverie.corporation.com.bmi.MainActivity;
 import reverie.corporation.com.bmi.R;
 import reverie.corporation.com.bmi.bmiCalculation.fragment.BmiHome;
 import reverie.corporation.com.bmi.exercise.fragment.ExerciseHome;
 import reverie.corporation.com.bmi.waistCalculation.fragment.WaistHome;
 
-/**
- * Created by Administrator on 12/27/2016.
- */
 
 public class home extends Fragment {
 
     //Defining Variables
-    private AdView mAdMobAdView;
     TextView txtAboutTitle, txtAboutMessage, txtAboutMainText;
     Typeface font;
 
@@ -56,10 +50,6 @@ public class home extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Fragment screen orientation normal both portait and landscape
-        //getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
     }
 
     @Override
@@ -79,21 +69,9 @@ public class home extends Fragment {
 
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getString(R.string.bmi_home_toolbar));
 
-        // Initializing Google AdMob
-       /* mAdMobAdView = (AdView)view.findViewById(R.id.admob_adview);
-        AdRequest adRequest = new AdRequest.Builder()
-                *//*.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("1797D2757F5140AA8F98809B458DB26F")// real device id here*//*
-                .build();
-        mAdMobAdView.loadAd(adRequest);*/
-
         handler = new Handler();
 
         font = Typeface.createFromAsset(getActivity().getAssets(), "android.ttf");
-
-        //txtAboutTitle = (TextView) view.findViewById(R.id.aboutTitle);
-        //txtAboutTitle.setText(getString(R.string.about_title));
-        //txtAboutTitle.setTypeface(font);
 
         // initialize tab layout with tab icon
         tabLayout = (TabLayout) view.findViewById(R.id.tabs);

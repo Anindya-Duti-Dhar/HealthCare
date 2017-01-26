@@ -503,6 +503,14 @@
 
     </LinearLayout>
 
+      <com.google.android.gms.ads.AdView
+      android:id="@+id/admob_adview"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_centerHorizontal="true"
+      ads:adSize="BANNER"
+      ads:adUnitId="@string/banner_footer" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/bmi_fab"
@@ -514,29 +522,5 @@
         android:src="@drawable/ic_action_content_add"
         app:backgroundTint="@color/ripple_green"
         app:fabSize="normal"/>
-
-
-    <!--  <com.google.android.gms.ads.AdView
-      android:id="@+id/admob_adview"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_alignParentBottom="true"
-      android:layout_centerHorizontal="true"
-      ads:adSize="BANNER"
-      ads:adUnitId="@string/banner_footer" />-->
-    <!--
-    <com.hanks.htextview.HTextView
-       android:id="@+id/text"
-       android:layout_width="match_parent"
-       android:layout_height="100dp"
-       android:background="#000000"
-       android:gravity="center"
-       android:textColor="#FFFFFF"
-       android:textSize="30sp"
-       htext:animateType="anvil"
-       htext:fontAsset="fonts/font-name.ttf" />
-    -->
-
-
 
 </RelativeLayout>
