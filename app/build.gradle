@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    signingConfigs {
-        config {
-            storeFile file('E:/ANINDYA/BMI/bmiplaystore.jks')
-            storePassword 'reverieapp'
-            keyAlias 'bmiplaystore'
-            keyPassword 'reverieapp'
-        }
-    }
+    //signingConfigs {
+       // config {
+       //     storeFile file('E:/ANINDYA/BMI/bmiplaystore.jks')
+       //     storePassword 'reverieapp'
+       //     keyAlias 'bmiplaystore'
+       //     keyPassword 'reverieapp'
+      //  }
+    // }
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
@@ -21,7 +21,11 @@ android {
     }
     buildTypes {
         release {
-            signingConfig signingConfigs.config
+            //signingConfig signingConfigs.config
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        buildType {
         }
     }
 }
