@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/common_page_bg"
     android:fitsSystemWindows="true"
-    tools:context=".MainActivity">
+    tools:context="anindya.duti.com.bmi.MainActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/exercise_1_list"

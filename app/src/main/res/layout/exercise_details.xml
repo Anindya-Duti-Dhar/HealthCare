@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/common_page_bg"
-    tools:context=".exercise.activity.ExerciseDetails">
+    tools:context="anindya.duti.com.bmi.exercise.activity.ExerciseDetails">
 
     <android.support.v7.widget.Toolbar
         xmlns:app="http://schemas.android.com/apk/res-auto"

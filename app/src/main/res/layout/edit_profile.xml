@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/common_page_bg"
-    tools:context=".start.activity.Profile">
+    tools:context="anindya.duti.com.bmi.start.activity.Profile">
 
     <android.support.v7.widget.CardView
         android:id="@+id/current_cardview"

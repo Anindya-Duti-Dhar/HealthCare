@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:background="@color/reverie_bg"
-    tools:context=".MainActivity">
+    tools:context="anindya.duti.com.bmi.MainActivity">
 
     <!-- define here your others component -->
 
