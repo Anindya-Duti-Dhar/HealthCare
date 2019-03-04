@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         // Initializing Internet Check
         if (hasConnection(MainActivity.this)){
             // Check App Version
-            CheckAppUpdateVersion();
+            //CheckAppUpdateVersion();
         }
 
         else {

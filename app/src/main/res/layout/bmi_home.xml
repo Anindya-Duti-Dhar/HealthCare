@@ -503,14 +503,17 @@
 
     </LinearLayout>
 
-      <com.google.android.gms.ads.AdView
-      android:id="@+id/admob_adview"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_alignParentBottom="true"
-      android:layout_centerHorizontal="true"
-      ads:adSize="BANNER"
-      ads:adUnitId="@string/banner_footer" />
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/admob_adview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/bmi_fab"
+        android:layout_marginTop="36dp"
+        ads:adSize="BANNER"
+        android:visibility="gone"
+        ads:adUnitId="@string/banner_footer" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/bmi_fab"
